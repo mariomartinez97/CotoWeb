@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  color: #010000;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0;
+  /*background: #e6e6e6;*/
+}
+
+a {
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 22px;
+  color: #61615E;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #1EB100;
+}
+
+a, a:hover {
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+#container {
+  width: 100%;
+  max-width: 1345px;
+  margin: 0 auto;
+  padding: 5px 0;
+  background: #ffffff;
+}
+
+#container .main {
+  display: block;
+  margin: 35px 0;
+  padding: 0 10px;
+}
+
+@media only screen and (max-width: 1345px) {
+  #container {
+    width: auto;
+    /*margin: 0 3%;*/
+  }
+}

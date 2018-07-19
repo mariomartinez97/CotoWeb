@@ -1,0 +1,36 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="/">
+        <span><img id="buffalo-logo" src="../../../assets/mountain_logo2.png"/></span>
+        <strong>COTOPAXI </strong><!--Tours-->
+      </a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="./tickets">Tickets</a></li>
+        <li><a routerLink="./info">Info</a></li>
+       <!-- <li *ngIf="isAuthenticated() == false" class="disabled"><a routerLink="./portfolio">Portfolios</a></li>
+        <li *ngIf="isAuthenticated()"><a routerLink="./portfolio">Portfolios</a></li>-->
+        <li><a routerLink="./about">About</a></li>
+      </ul>
+        <ul class="nav navbar-nav navbar-right">
+      <li><a><br-auth></br-auth></a></li>
+    </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+<div class="panel-footer">Project worked on by: Gabriel Leo, Mario Martinez, Oleh Harkusha, Rodrigo Oliveira</div>
+<!-- <br-security-finder></br-security-finder>
+<br-chart></br-chart>
+<br-listview></br-listview> -->
