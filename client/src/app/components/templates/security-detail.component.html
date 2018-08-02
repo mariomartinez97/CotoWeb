@@ -1,0 +1,62 @@
+<!--
+<div>
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <form class="form-inline has-success">
+        <div-title class="title">{{security}} ({{ticker}}) Details</div-title>
+      </form>
+    </div>
+
+    <table class="table table-hover" width="100%">
+      <thead class="text-success">
+        <tr>
+          <th>Ticker</th>
+          <th>Sector</th>
+          <th>Security</th>
+          <th>Industry</th>
+          <th>Min</th>
+          <th>Max</th>
+          <th>Volume Avg</th>
+          <th>52 Week Range</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let calc of allCalc; let num = index'>
+          <td onclick="window.scrollTo(0, 840)">
+            <p>{{securities[num].ticker}}</p>
+          </td>
+          <td>
+            <p>{{securities[num].sector}}</p>
+          </td>
+          <td>
+            <p>{{securities[num].security}}</p>
+          </td>
+          <td>
+            <p>{{securities[num].industry}}</p>
+          </td>
+          <td>
+            <p>{{calc.min}}</p>
+          </td>
+          <td>
+            <p>{{calc.max}}</p>
+          </td>
+          <td>
+            <p>{{calc.avg}}</p>
+          </td>
+          <td>
+            <p>{{calc.rmin}} - {{calc.rmax}}</p>
+          </td>
+          <!-- <td class="align-mid"><button title="Remove Stock" type="button"(click)="removeStockDetail(i)" class="close"><span><i class="fa fa-minus-circle"></i></span></button></td> -->
+        <!--</tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+  <br-chart (sendSecurities)='onNotifySelected($event)' (sendAllCalculations)='onNotifyAllCalculations($event)' *ngFor="let ticker of sendTicker" [ticker]='ticker'>
+  </br-chart>
+<br>
+<div>
+  <br-price></br-price>
+</div>
+-->
