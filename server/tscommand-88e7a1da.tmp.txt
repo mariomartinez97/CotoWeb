@@ -1,0 +1,1 @@
+src\database.ts src\server.ts --removeComments --rootDir ./src --target ES6 --module commonjs --outDir ./dist
