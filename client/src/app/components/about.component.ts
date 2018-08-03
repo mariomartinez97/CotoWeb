@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PortfoliosService } from '../services/portfolios.service';
 
 @Component({
   selector: 'br-about',
@@ -7,4 +8,14 @@ import { Component, OnInit } from '@angular/core';
 
 })
 
-export class AboutComponent { }
+export class AboutComponent {
+
+  constructor(private pser: PortfoliosService) {
+    this.test();
+  }
+
+  test() {
+    this.pser.getPortfolios().then(res => console.log(res));
+    
+  }
+ }

@@ -8,6 +8,7 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
 import { Portfolio } from '../models/portfolio';
+import { Cotizaciones } from '../models/cotizaciones';
 
 @Injectable()
 export class PortfoliosService {
@@ -16,12 +17,16 @@ export class PortfoliosService {
 
   constructor(private authHttp: AuthHttp) { }
 
-  getPortfolios(): Promise<Portfolio[]> {
-    return this.authHttp.get(`${environment.apiUrl}/portfolios`)
+  getPortfolios(): Promise<Cotizaciones[]> {
+    return this.authHttp.get(`${environment.apiUrl}/cotizaciones`)
       .toPromise()
-      .then(res => res.json() as Portfolio[])
+      .then(res => res.json() as Cotizaciones[])
       .catch(this.handleError);
+
+      
   }
+
+  
 
   create(portfolio: Portfolio): Promise<Portfolio> {
     let pCopy = JSON.parse(JSON.stringify(portfolio));
