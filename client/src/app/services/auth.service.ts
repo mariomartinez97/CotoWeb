@@ -13,11 +13,11 @@ export class AuthService {
 
   constructor(public router: Router) {
     this.auth0 = new auth0.WebAuth({
-      clientID: 'd3a_Rw2yO4Trh_jCCCP7wFaNywSS7MhF',
-      domain: 'rodrigocso.auth0.com',
+      clientID: 'V7zqS0y0nH3df7kRF8oysPklqeLaX7kk',
+      domain: 'cotoweb.auth0.com',
       responseType: 'token id_token',
-      audience: 'https://portfolio.buffalo.com',
-      redirectUri: environment.clientUrl,
+      audience: 'https://cotoweb.auth0.com/userinfo',
+      redirectUri: 'http://localhost:4200/callback',
       scope: 'openid profile email',
       leeway: 30
     });
