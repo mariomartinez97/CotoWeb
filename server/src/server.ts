@@ -30,24 +30,24 @@ export class Server {
     this.app.use(cors());
     this.app.use(bodyParser.json());
     this.db = new Database();
-    //this.configureAuth();
+    this.configureAuth();
     this.routes();
   }
 
-  // private configureAuth(): void {
-  //   this.checkJwt = expressJwt({
-  //     secret: jwksRsa.expressJwtSecret({
-  //       cache: true,
-  //       rateLimit: true,
-  //       jwksRequestsPerMinute: 5,
-  //       jwksUri: 'https://rodrigocso.auth0.com/.well-known/jwks.json'
-  //     }),
+  private configureAuth(): void {
+    this.checkJwt = expressJwt({
+      secret: jwksRsa.expressJwtSecret({
+        cache: true,
+        rateLimit: true,
+        jwksRequestsPerMinute: 5,
+        jwksUri: 'https://cotoweb.auth0.com/.well-known/jwks.json'
+      }),
 
-  //     audience: 'https://portfolio.buffalo.com',
-  //     issuer: 'https://rodrigocso.auth0.com/',
-  //     algorithms: ['RS256']
-  //   })
-  // }
+      audience: 'http://localhost:4200',
+      issuer: 'https://cotoweb.auth0.com',
+      algorithms: ['RS256']
+    })
+  }
 
   private routes(): void {
 
@@ -58,12 +58,19 @@ export class Server {
       );
     });
 
-    this.app.get('/cotizaciones', (req: express.Request, res: express.Response) => {
+    // this.app.get('/cotizaciones', (req: express.Request, res: express.Response) => {
+    //   this.db.getCotizaciones(
+    //     (result: any[]) => res.json(result),
+    //     () => res.sendStatus(400),
+    //     req.query.q ? req.query.q.replace(/[^\w\s]/gi, '') : null
+    //   );
+    // });
+
+
+    this.app.get('/cotizaciones', this.checkJwt, (req: express.Request, res: express.Response) => {
       this.db.getCotizaciones(
-        (result: any[]) => res.json(result),
-        () => res.sendStatus(400),
-        req.query.q ? req.query.q.replace(/[^\w\s]/gi, '') : null
-      );
+        (result: any[]) => res.json(result), () => res.sendStatus(400), req.user.sub, 
+      )
     });
 
 
