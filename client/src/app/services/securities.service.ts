@@ -7,18 +7,27 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
 import { SecurityData } from '../models/security-data';
+import { Cotizaciones } from '../models/cotizaciones'
 
 @Injectable()
 export class SecuritiesService {
 
   constructor(private http: Http) { }
 
-  getSecurities(): Promise<SecurityData[]> {
-    return this.http.get(`${environment.apiUrl}/securities`)
+  getSecurities(): Promise<Cotizaciones[]> {
+    return this.http.get(`${environment.apiUrl}/cotizaciones`)
       .toPromise()
-      .then(res => res.json() as SecurityData[])
+      .then(res => res.json() as Cotizaciones[])
       .catch(this.handleError)
   }
+
+
+  // getSecurities(): Promise<SecurityData[]> {
+  //   return this.http.get(`${environment.apiUrl}/securities`)
+  //     .toPromise()
+  //     .then(res => res.json() as SecurityData[])
+  //     .catch(this.handleError)
+  // }
 
   getSecurityDetails(ticker: string): Promise<SecurityData> {
     return this.http.get(`${environment.apiUrl}/securities/${ticker}`)
