@@ -19,13 +19,13 @@ const routes: Routes = [
   { path: 'info', component: InfoComponent },
   { path: 'tickets', component: TicketsComponent },
   { path: 'prices/:ticker', component: HistoricalPricesComponent },
-  //{ path: 'portfolio', component: PortfolioComponent, canActivate: [AuthGuardComponent] },
+  { path: 'cotizaciones', component: PortfolioComponent, canActivate: [AuthGuardComponent] },
   { path: 'security-detail/:ticker', component: SecurityDetailComponent },
   { path: 'about', component: AboutComponent }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes, {useHash: true}) ],
+  imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}

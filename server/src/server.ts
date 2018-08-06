@@ -52,11 +52,11 @@ export class Server {
   private routes(): void {
 
 
-      this.app.post('/cotizaciones', (req: express.Request, res: express.Response) => {
-        this.db.cotizacion(
-          req.user.sub, req.body, (opRes) => res.json(opRes.insertedIds[0]), () => res.sendStatus(400)
-      );
-    });
+    //   this.app.post('/cotizaciones', (req: express.Request, res: express.Response) => {
+    //     this.db.cotizacion(
+    //       req.user.sub, req.body, (opRes) => res.json(opRes.insertedIds[0]), () => res.sendStatus(400)
+    //   );
+    // });
 
     // this.app.get('/cotizaciones', (req: express.Request, res: express.Response) => {
     //   this.db.getCotizaciones(

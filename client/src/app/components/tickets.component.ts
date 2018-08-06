@@ -45,7 +45,7 @@ export class TicketsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     if (this.auth.isAuthenticated()) {
-      this.loadPortfolios();
+      // this.loadPortfolios();
     }
   }
 
@@ -100,27 +100,27 @@ export class TicketsComponent implements OnInit, AfterViewInit {
     });
   }
 
-  public loadPortfolios(): void {
-    let promises: Promise<any>[] = [];
+  // public loadPortfolios(): void {
+  //   let promises: Promise<any>[] = [];
 
-    this.portfolioService.getPortfolios().then(portfolios => {
-      if (portfolios.length) {
-        portfolios.forEach(p =>
-          p.items.forEach(item =>
-            promises.push(this.securitiesService.getSecurityDetails(item.symbol)
-              .then(details => item.details = details)
-            )
-          )
-        );
-      }
-      Promise.all(promises).then(() => {
-        this.portfolios = portfolios;
+  //   this.portfolioService.getPortfolios().then(portfolios => {
+  //     if (portfolios.length) {
+  //       portfolios.forEach(p =>
+  //         p.items.forEach(item =>
+  //           promises.push(this.securitiesService.getSecurityDetails(item.symbol)
+  //             .then(details => item.details = details)
+  //           )
+  //         )
+  //       );
+  //     }
+  //     Promise.all(promises).then(() => {
+  //       this.portfolios = portfolios;
 
-        this.selectPortfolio(this.portfolios[0]);
-      })
-    });
+  //       this.selectPortfolio(this.portfolios[0]);
+  //     })
+  //   });
 
-  }
+  // }
 
   public getSecurities(): SecurityData[] {
     if (this.query) {

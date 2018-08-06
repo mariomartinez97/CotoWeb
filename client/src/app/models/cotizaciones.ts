@@ -5,7 +5,7 @@ export class Cotizaciones {
   email: string;
   telefono: string;
   fecha: string;
-  items: Pedidos[];
+ // items: Pedidos[];
 }
 
 
