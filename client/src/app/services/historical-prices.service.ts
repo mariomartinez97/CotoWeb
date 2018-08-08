@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { environment } from '../../environments/environment';
+import { environment } from 'environments/environment';
 
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';

@@ -12,12 +12,13 @@ import { SecuritiesService } from '../services/securities.service'
 
 export class AboutComponent {
 
-  constructor(private pser: PortfoliosService) {
+  constructor(private pser: PortfoliosService,
+              private temp: SecuritiesService) {
     this.test();
   }
 
   test() {
     this.pser.getPortfolios().then(res => console.log(res));
-    
+    this.temp.getSecurities().then(res=> console.log(res));
   }
  }
