@@ -22,8 +22,6 @@ export class PortfoliosService {
       .toPromise()
       .then(res => res.json() as Cotizaciones[])
       .catch(this.handleError);
-
-      
   }
 
   

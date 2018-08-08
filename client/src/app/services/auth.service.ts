@@ -16,8 +16,8 @@ export class AuthService {
       clientID: 'V7zqS0y0nH3df7kRF8oysPklqeLaX7kk',
       domain: 'cotoweb.auth0.com',
       responseType: 'token id_token',
-      audience: 'https://cotoweb.auth0.com/userinfo',
-      redirectUri: environment.clientUrl,
+      audience: 'https://cotowebAPI.com',
+      redirectUri: 'http://localhost:4200/',
       scope: 'openid profile email',
       leeway: 30
     });

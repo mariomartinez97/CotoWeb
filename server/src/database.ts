@@ -30,18 +30,30 @@ export class Database {
       .catch(error);
   }
 
-  public getCotizaciones(success: (collection: any[]) => void, error: () => void, term: string): void {
-    let regex: RegExp = new RegExp(term, 'i');
-    let query: any = term ? { $or: [{ nombre: { $regex: regex } }, { email: { $regex: regex } }] } : {};
-    this.db.collection('cotizaciones').find(query).limit(term ? 10 : 0).toArray((err: mongo.MongoError, docs: any) => {
+  // public getCotizaciones(success: (collection: any[]) => void, error: () => void, term: string): void {
+  //   let regex: RegExp = new RegExp(term, 'i');
+  //   let query: any = term ? { $or: [{ nombre: { $regex: regex } }, { email: { $regex: regex } }] } : {};
+  //   this.db.collection('cotizaciones').find(query).limit(term ? 10 : 0).toArray((err: mongo.MongoError, docs: any) => {
+  //     if (err) {
+  //       console.log(err);
+  //       error();
+  //     } else {
+  //       success(docs);
+  //     }
+  //   });
+  // }
+
+  public getCotizaciones(uid: string, success: (collection: any[]) => void, error: () => void): void {
+    this.db.collection('cotizaciones').find().toArray((err: mongo.MongoError, docs: any[]) => {
       if (err) {
-        console.log(err);
         error();
       } else {
+        docs.forEach(item => item['id'] = item._id);
         success(docs);
       }
     });
   }
+
 
   // public getSecurityDetails(ticker: string, success: (doc: any) => void, error: () => void): void {
   //     this.db.collection('securities').findOne({ ticker: ticker }, (err: mongo.MongoError, doc: any) => {

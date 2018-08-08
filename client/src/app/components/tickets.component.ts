@@ -17,7 +17,8 @@ import { PortfoliosService } from '../services/portfolios.service';
   styleUrls: ['./styles/tickets.component.css']
 })
 
-export class TicketsComponent implements OnInit, AfterViewInit {
+//export class TicketsComponent implements OnInit, AfterViewInit {
+  export class TicketsComponent  {
 
   securities: SecurityData[];
   portfolio: SecurityData[] = [];
@@ -33,72 +34,76 @@ export class TicketsComponent implements OnInit, AfterViewInit {
     private router: Router,
     private auth: AuthService,
     private portfolioService: PortfoliosService
-  ) { }
-
-  ngOnInit(): void {
-    this.securitiesService.getSecurities()
-      .then(securities => {
-        this.securities = securities
-        this.load = false;
-      });
+  ) {
+    console.log("im here") 
+    console.log(auth.isAuthenticated().toString())
+    console.log("im here")
   }
 
-  ngAfterViewInit() {
-    if (this.auth.isAuthenticated()) {
-      // this.loadPortfolios();
-    }
-  }
+  // ngOnInit(): void {
+  //   this.securitiesService.getSecurities()
+  //     .then(securities => {
+  //       this.securities = securities
+  //       this.load = false;
+  //     });
+  // }
 
-  public showHistoricalPrices(security: SecurityData) {
-    this.router.navigate(['./prices', security.ticker]);
-  }
+  // ngAfterViewInit() {
+  //   if (this.auth.isAuthenticated()) {
+  //     this.loadPortfolios();
+  //   }
+  // }
 
-  public addToPortfolio(selectedTicker: SecurityData) {
-    if (!this.selectedPortfolio.items.some(y => y.symbol == selectedTicker.ticker)) {
-      this.loading = false;
-      this.selectedPortfolio.items.push({
-        symbol: selectedTicker.ticker,
-        shares: 1,
-        details: null
-      });
-      this.portfolioService.update(this.selectedPortfolio);
-    }
-    this.router.navigate(['./portfolio']);
-  }
+  // public showHistoricalPrices(security: SecurityData) {
+  //   this.router.navigate(['./prices', security.ticker]);
+  // }
 
-  public gotoDetails(security: SecurityData) {
-    this.router.navigate(['./security-detail', security.ticker]);
-  }
+  // public addToPortfolio(selectedTicker: SecurityData) {
+  //   if (!this.selectedPortfolio.items.some(y => y.symbol == selectedTicker.ticker)) {
+  //     this.loading = false;
+  //     this.selectedPortfolio.items.push({
+  //       symbol: selectedTicker.ticker,
+  //       shares: 1,
+  //       details: null
+  //     });
+  //     this.portfolioService.update(this.selectedPortfolio);
+  //   }
+  //   this.router.navigate(['./portfolio']);
+  // }
 
-  public isAuthenticated(): boolean {
-    return this.auth.isAuthenticated();
-  }
+  // public gotoDetails(security: SecurityData) {
+  //   this.router.navigate(['./security-detail', security.ticker]);
+  // }
 
-  public onChangePortfolio(pName: string): void {
-    this.portfolios.forEach(p => {
-      if (p.name === pName) {
-        this.selectPortfolio(p);
-        this.selected = true;
-      }
-    });
-  }
+  // public isAuthenticated(): boolean {
+  //   return this.auth.isAuthenticated();
+  // }
 
-  public selectPortfolio(p: Portfolio): void {
-    this.selectedPortfolio = p;
-    this.loading = true;
+  // public onChangePortfolio(pName: string): void {
+  //   this.portfolios.forEach(p => {
+  //     if (p.name === pName) {
+  //       this.selectPortfolio(p);
+  //       this.selected = true;
+  //     }
+  //   });
+  // }
 
-    let numItems = p.items.length;
-    p.items.forEach(item => {
-      this.securitiesService.getSecurityDetails(item.symbol)
-        .then(details => {
-          item['details'] = details;
-          numItems--;
-          if (numItems === 0) {
-            //this.loading = false;
-          }
-        });
-    });
-  }
+  // public selectPortfolio(p: Portfolio): void {
+  //   this.selectedPortfolio = p;
+  //   this.loading = true;
+
+  //   let numItems = p.items.length;
+  //   p.items.forEach(item => {
+  //     this.securitiesService.getSecurityDetails(item.symbol)
+  //       .then(details => {
+  //         item['details'] = details;
+  //         numItems--;
+  //         if (numItems === 0) {
+  //           //this.loading = false;
+  //         }
+  //       });
+  //   });
+  // }
 
   // public loadPortfolios(): void {
   //   let promises: Promise<any>[] = [];
@@ -122,33 +127,33 @@ export class TicketsComponent implements OnInit, AfterViewInit {
 
   // }
 
-  public getSecurities(): SecurityData[] {
-    if (this.query) {
-      return this.securities.filter(s => (s.ticker + s.security)
-        .toLowerCase().indexOf(this.query.toLowerCase()) > -1);
-    }
-    return this.securities;
-  }
+  // public getSecurities(): SecurityData[] {
+  //   if (this.query) {
+  //     return this.securities.filter(s => (s.ticker + s.security)
+  //       .toLowerCase().indexOf(this.query.toLowerCase()) > -1);
+  //   }
+  //   return this.securities;
+  // }
 
-  public sortData(sort: Sort) {
-    const data = this.securities.slice();
-    if (!sort.active || sort.direction == '') {
-      this.securities = data;
-      return;
-    }
+  // public sortData(sort: Sort) {
+  //   const data = this.securities.slice();
+  //   if (!sort.active || sort.direction == '') {
+  //     this.securities = data;
+  //     return;
+  //   }
 
-    function compare(a, b, isAsc) {
-      return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
-    }
+  //   function compare(a, b, isAsc) {
+  //     return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+  //   }
 
-    this.securities = data.sort((a, b) => {
-      let isAsc = sort.direction == 'asc';
-      switch (sort.active) {
-        case 'ticker': return compare(a.ticker, b.ticker, isAsc);
-        case 'securities': return compare(+a.security, +b.security, isAsc);
-        default: return 0;
-      }
-    });
-  }
+  //   this.securities = data.sort((a, b) => {
+  //     let isAsc = sort.direction == 'asc';
+  //     switch (sort.active) {
+  //       case 'ticker': return compare(a.ticker, b.ticker, isAsc);
+  //       case 'securities': return compare(+a.security, +b.security, isAsc);
+  //       default: return 0;
+  //     }
+  //   });
+  // }
 
 }

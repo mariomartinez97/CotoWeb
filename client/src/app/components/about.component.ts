@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfoliosService } from '../services/portfolios.service';
+import { SecuritiesService } from '../services/securities.service'
+
 
 @Component({
   selector: 'br-about',
