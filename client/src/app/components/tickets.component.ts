@@ -47,6 +47,7 @@ import { PortfoliosService } from '../services/portfolios.service';
     //     this.securities = securities
     //     this.load = false;
     //   });
+
     this.securitiesService.getSecurities().then(res => {
       this.Features = res;
       console.log(this.Features);
