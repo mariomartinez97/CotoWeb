@@ -66,7 +66,6 @@ export class Server {
       );
     });
 
-
     // this.app.get('/cotizaciones', this.checkJwt, (req: express.Request, res: express.Response) => {
     //   this.db.getCotizaciones(
     //     (result: any[]) => res.json(result), () => res.sendStatus(400), req.user.sub, 
@@ -79,27 +78,11 @@ export class Server {
       )
     }); 
 
-
-    //     this.app.get('/cotizacion/:id/returns', this.checkJwt, (req: express.Request, res: express.Response) => {
-    //   this.db.getPortfolioById(req.user.sub, req.params.id,
-    //     (portfolio) => {
-    //       let priceMap: PriceMap = { };
-    //       let itemsProcessed = 0;
-    //       portfolio.items.forEach(
-    //         (item) => this.db.getSecurityPrices(
-    //           item.symbol, (prices) => {
-    //             priceMap[item.symbol] = prices;
-    //             itemsProcessed++;
-    //             if (itemsProcessed === portfolio.items.length) {
-    //               res.json(ReturnCalculator.calculatePortfolioHistoricalReturn(portfolio, priceMap));
-    //             }
-    //           },
-    //           () => res.sendStatus(400)
-    //         )
-    //       );
-    //     },
-    //     () => res.sendStatus(400));
-    // });
+    this.app.get('/tours/:tourID', (req: express.Request, res: express.Response) => {
+      this.db.getTourById(
+        req.params.tourID, (result: any[]) => res.json(result), () => res.sendStatus(400)
+      );
+    });
 
 
   //   this.app.get('/securities', (req: express.Request, res: express.Response) => {

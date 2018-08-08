@@ -1,6 +1,6 @@
 import * as mongo from 'mongodb';
 import { PriceMap } from './model/price-map';
-import { Portfolio } from './model/portfolio';
+import { FeatureList } from './model/featurelist';
 import {Cotizaciones } from './model/cotizaciones';
 
 export class Database {
@@ -36,6 +36,16 @@ export class Database {
     this.db.collection('features').find(query).limit(term ? 10 : 0).toArray((err: mongo.MongoError, docs: any) => {
       if (err) {
         console.log(err);
+        error();
+      } else {
+        success(docs);
+      }
+    });
+  }
+
+ public getTourById(tourID: string, success: (collection: any[]) => void, error: () => void): void {
+    this.db.collection('tours').find({tourId : tourID}).toArray((err: mongo.MongoError, docs: any) => {
+      if (err) {
         error();
       } else {
         success(docs);
