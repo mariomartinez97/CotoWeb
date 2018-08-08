@@ -7,17 +7,17 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
 import { SecurityData } from '../models/security-data';
-import { FeatreList } from '../models/featurelist'
+import { FeatureList } from '../models/featurelist'
 
 @Injectable()
 export class SecuritiesService {
 
   constructor(private http: Http) { }
 
-  getSecurities(): Promise<FeatreList[]> {
+  getSecurities(): Promise<FeatureList[]> {
     return this.http.get(`${environment.apiUrl}/features`)
       .toPromise()
-      .then(res => res.json() as FeatreList[])
+      .then(res => res.json() as FeatureList[])
       .catch(this.handleError)
   }
 

@@ -17,7 +17,7 @@ import { AuthGuardComponent } from './components/authguard.component';
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'info', component: InfoComponent },
-  { path: 'tickets', component: TicketsComponent },
+  { path: 'compare', component: TicketsComponent },
   { path: 'prices/:ticker', component: HistoricalPricesComponent },
   { path: 'cotizaciones', component: PortfolioComponent, canActivate: [AuthGuardComponent] },
   { path: 'security-detail/:ticker', component: SecurityDetailComponent },

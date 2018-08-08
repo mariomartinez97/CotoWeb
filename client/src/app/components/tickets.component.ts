@@ -28,6 +28,7 @@ import { PortfoliosService } from '../services/portfolios.service';
   selected: boolean = false;
   load: boolean = true;
   query: string;
+  Features: any;
 
   constructor(
     private securitiesService: SecuritiesService,
@@ -40,13 +41,17 @@ import { PortfoliosService } from '../services/portfolios.service';
     console.log("im here")
   }
 
-  // ngOnInit(): void {
-  //   this.securitiesService.getSecurities()
-  //     .then(securities => {
-  //       this.securities = securities
-  //       this.load = false;
-  //     });
-  // }
+  ngOnInit(): void {
+    // this.securitiesService.getSecurities()
+    //   .then(securities => {
+    //     this.securities = securities
+    //     this.load = false;
+    //   });
+    this.securitiesService.getSecurities().then(res => {
+      this.Features = res;
+      console.log(this.Features);
+    });
+  }
 
   // ngAfterViewInit() {
   //   if (this.auth.isAuthenticated()) {

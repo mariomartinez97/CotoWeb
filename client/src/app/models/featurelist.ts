@@ -1,5 +1,5 @@
 import { Feature } from './feature';
-export class FeatreList {
+export class FeatureList {
     item: string[];
     list: Feature[];
   }
