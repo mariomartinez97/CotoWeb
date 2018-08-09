@@ -30,10 +30,8 @@ export class Database {
       .catch(error);
   }
 
-  public getFeatures(success: (collection: any[]) => void, error: () => void, term: string): void {
-    let regex: RegExp = new RegExp(term, 'i');
-    let query: any = term ? { $or: [{ nombre: { $regex: regex } }, { email: { $regex: regex } }] } : {};
-    this.db.collection('features').find(query).limit(term ? 10 : 0).toArray((err: mongo.MongoError, docs: any) => {
+  public getFeatures(success: (collection: any[]) => void, error: () => void): void {
+    this.db.collection('features').find().toArray((err: mongo.MongoError, docs: any) => {
       if (err) {
         console.log(err);
         error();

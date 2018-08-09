@@ -58,11 +58,9 @@ export class Server {
     //   );
     // });
 
-    this.app.get('/features', (req: express.Request, res: express.Response) => {
+	  this.app.get('/features', (req: express.Request, res: express.Response) => {
       this.db.getFeatures(
-        (result: any[]) => res.json(result),
-        () => res.sendStatus(400),
-        req.query.q ? req.query.q.replace(/[^\w\s]/gi, '') : null
+        (result: any[]) => res.json(result), () => res.sendStatus(400)
       );
     });
 
