@@ -29,6 +29,7 @@ import { PortfoliosService } from '../services/portfolios.service';
   load: boolean = true;
   query: string;
   Features: any;
+  tour:any;
 
   constructor(
     private securitiesService: SecuritiesService,
@@ -52,6 +53,11 @@ import { PortfoliosService } from '../services/portfolios.service';
       this.Features = res;
       console.log(this.Features);
     });
+    this.securitiesService.getSecurityDetails("1").then(res => {
+      this.tour = res;
+      console.log(this.tour);
+    });
+  
   }
 
   // ngAfterViewInit() {

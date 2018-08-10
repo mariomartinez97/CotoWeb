@@ -10,13 +10,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor='let f of Features; let num = index'> <!--*ngFor='let calc of allCalc; let num = index' -->
+            <tr *ngFor='let f of Features; let num = index; let p tour[0].features'> <!--*ngFor='let calc of allCalc; let num = index' -->
               <!-- <td>
                 <p> {{f.item1.id}}</p>
               </td> -->
               <td>
                 <!--<p> {{f.item1.name}}</p>-->
                 <p>{{f.name}}</p>
+              </td>
+              <td>
+                <!--<p> {{f.item1.name}}</p>-->
+                <p>{{p.name}}</p>
               </td>
 
               </tr>
