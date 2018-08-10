@@ -10,6 +10,7 @@ import { SecuritiesService } from '../services/securities.service';
 import { SecurityFilterPipe } from '../pipes/security-filter.pipe';
 import { SecurityData } from '../models/security-data';
 import { PortfoliosService } from '../services/portfolios.service';
+import { ToursService} from '../services/tours.service'
 
 @Component({
   selector: 'br-securities',
@@ -35,7 +36,8 @@ import { PortfoliosService } from '../services/portfolios.service';
     private securitiesService: SecuritiesService,
     private router: Router,
     private auth: AuthService,
-    private portfolioService: PortfoliosService
+    private portfolioService: PortfoliosService,
+    private toursService: ToursService
   ) {
     console.log("im here") 
     console.log(auth.isAuthenticated().toString())
@@ -54,21 +56,27 @@ import { PortfoliosService } from '../services/portfolios.service';
       console.log(this.Features);
     });
 
-    this.securitiesService.getSecurityDetails('1').then(res => {
+    this.toursService.getToursById('1').then(res => {
       this.Tour1 = res[0].features;
       this.Tour1Price = res[0].price;
-      console.log(this.Tour1);
-      
+      console.log(this.Tour1);     
     });
 
-    this.securitiesService.getSecurityDetails('2').then(res => {
+    // this.securitiesService.getSecurityDetails('1').then(res => {
+    //   this.Tour1 = res[0].features;
+    //   this.Tour1Price = res[0].price;
+    //   console.log(this.Tour1);
+      
+    // });
+
+    this.toursService.getToursById('2').then(res => {
       this.Tour2 = res[0].features;
       this.Tour2Price = res[0].price;
       console.log(this.Tour2);
       
     });
 
-    this.securitiesService.getSecurityDetails('3').then(res => {
+    this.toursService.getToursById('3').then(res => {
       this.Tour3 = res[0].features;
       this.Tour3Price = res[0].price;
       console.log(this.Tour3Price);
