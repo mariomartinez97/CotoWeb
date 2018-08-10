@@ -1,31 +1,62 @@
 <div class="container-fluid">
   <div class="row">
-      <table class="table table-hover" width="100%">
-          <thead class="text-success">
-            <tr>
-              <th>Features</th>
-              <th>Tour 1</th>
-              <th>Tour 2</th>
-              <th>Tour 3</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor='let f of Features; let num = index'> <!--*ngFor='let calc of allCalc; let num = index' -->
-              <!-- <td>
-                <p> {{f.item1.id}}</p>
-              </td> -->
-              <td>
-                <p>{{f.name}}</p>
-              </td>
-              <tr>
-                <td></td>
-                <td><button>Button1</button></td>
-                <td><button>Button2</button></td>
-                <td><button>Button3</button></td>
+    <table class="table table-hover" width="100%">
+      <thead class="text-success">
+        <tr>
+          <th>Tour 1</th>
+          <th>Tour 2</th>
+          <th>Tour 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <td>
+          <tr *ngFor='let t1 of Tour1; let num = index;'>
+            <td style="padding-top: 10px; padding-bottom: 10px">
+              {{t1.name}}
+            </td>
+          </tr>
+        </td>
 
-              </tr>
-          </tbody>
-        </table>
+        <td style="padding-bottom: 80px">
+          <tr *ngFor='let t2 of Tour2; let num = index;'>
+            <td style="padding-top: 10px; padding-bottom: 10px">
+              {{t2.name}}
+            </td>
+          </tr>
+        </td>
+
+        <div>
+          <tr *ngFor="let t3 of Tour3">
+            <td style="padding-top: 10px; padding-bottom: 10px">
+              {{t3.name}}
+            </td>
+          </tr>
+        </div>
+        <tr>
+          <td>
+            Price: ${{Tour1Price}}
+            <br/>
+            <a>More Info</a>
+            <br/>
+            <button>Add To Cart</button>
+          </td>
+          <td>
+            Price: ${{Tour2Price}}
+            <br/>
+            <a>More Info</a>
+            <br/>
+            <button>Add To Cart</button>
+          </td>
+          <td>
+            Price: ${{Tour3Price}}
+            <br/>
+            <a>More Info</a>
+            <br/>
+            <button>Add To Cart</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 

@@ -29,6 +29,7 @@ import { PortfoliosService } from '../services/portfolios.service';
   load: boolean = true;
   query: string;
   Features: any;
+  Tour1; Tour2; Tour3; Tour1Price; Tour2Price; Tour3Price;
 
   constructor(
     private securitiesService: SecuritiesService,
@@ -51,6 +52,27 @@ import { PortfoliosService } from '../services/portfolios.service';
     this.securitiesService.getSecurities().then(res => {
       this.Features = res;
       console.log(this.Features);
+    });
+
+    this.securitiesService.getSecurityDetails('1').then(res => {
+      this.Tour1 = res[0].features;
+      this.Tour1Price = res[0].price;
+      console.log(this.Tour1);
+      
+    });
+
+    this.securitiesService.getSecurityDetails('2').then(res => {
+      this.Tour2 = res[0].features;
+      this.Tour2Price = res[0].price;
+      console.log(this.Tour2);
+      
+    });
+
+    this.securitiesService.getSecurityDetails('3').then(res => {
+      this.Tour3 = res[0].features;
+      this.Tour3Price = res[0].price;
+      console.log(this.Tour3Price);
+      
     });
   }
 

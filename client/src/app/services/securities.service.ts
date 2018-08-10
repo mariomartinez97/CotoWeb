@@ -22,10 +22,10 @@ export class SecuritiesService {
       .catch(this.handleError)
   }
 
-  getSecurityDetails(tourId: string): Promise<SecurityData> {
+  getSecurityDetails(tourId: string): Promise<Tours> {
     return this.http.get(`${environment.apiUrl}/tours/${tourId}`)
       .toPromise()
-      .then(res => res.json() as SecurityData)
+      .then(res => res.json() as Tours)
       .catch(this.handleError);
   }
 
