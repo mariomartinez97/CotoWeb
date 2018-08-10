@@ -12,6 +12,8 @@ import { SecurityDetailComponent } from './components/security-detail.component'
 import { AboutComponent } from './components/about.component';
 import { LandingPageComponent } from './components/landing-page.component';
 import { AuthGuardComponent } from './components/authguard.component';
+import { PlanVisitComponent } from './components/plan-visit.component';
+import { SafetyFirstComponent } from './components/safety-first.component';
 
 
 const routes: Routes = [
@@ -21,7 +23,9 @@ const routes: Routes = [
   { path: 'prices/:ticker', component: HistoricalPricesComponent },
   { path: 'cotizaciones', component: PortfolioComponent, canActivate: [AuthGuardComponent] },
   { path: 'security-detail/:ticker', component: SecurityDetailComponent },
-  { path: 'about', component: AboutComponent }
+  { path: 'about', component: AboutComponent },
+  { path: 'visit', component: PlanVisitComponent },
+  { path: 'safety', component: SafetyFirstComponent }
 ];
 
 @NgModule({
