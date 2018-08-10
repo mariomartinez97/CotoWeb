@@ -21,6 +21,8 @@ import { SecurityDetailComponent } from './components/security-detail.component'
 import { AboutComponent } from './components/about.component';
 import { LandingPageComponent } from './components/landing-page.component';
 import { AuthGuardComponent } from './components/authguard.component';
+import { PlanVisitComponent } from './components/plan-visit.component';
+import { SafetyFirstComponent } from './components/safety-first.component';
 
 import { AuthService } from './services/auth.service';
 import { SecuritiesService } from './services/securities.service';
@@ -49,7 +51,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     PortfolioComponent,
     SecurityDetailComponent,
     AboutComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    PlanVisitComponent,
+    SafetyFirstComponent
   ],
   imports: [
     BrowserModule,
