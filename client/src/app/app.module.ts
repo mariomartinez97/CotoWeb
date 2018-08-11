@@ -23,6 +23,7 @@ import { LandingPageComponent } from './components/landing-page.component';
 import { AuthGuardComponent } from './components/authguard.component';
 import { PlanVisitComponent } from './components/plan-visit.component';
 import { SafetyFirstComponent } from './components/safety-first.component';
+import { CartComponent } from './components/cart.component';
 
 import { AuthService } from './services/auth.service';
 import { SecuritiesService } from './services/securities.service';
@@ -54,7 +55,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AboutComponent,
     LandingPageComponent,
     PlanVisitComponent,
-    SafetyFirstComponent
+    SafetyFirstComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

@@ -14,6 +14,7 @@ import { LandingPageComponent } from './components/landing-page.component';
 import { AuthGuardComponent } from './components/authguard.component';
 import { PlanVisitComponent } from './components/plan-visit.component';
 import { SafetyFirstComponent } from './components/safety-first.component';
+import { CartComponent} from './components/cart.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'security-detail/:ticker', component: SecurityDetailComponent },
   { path: 'about', component: AboutComponent },
   { path: 'visit', component: PlanVisitComponent },
-  { path: 'safety', component: SafetyFirstComponent }
+  { path: 'safety', component: SafetyFirstComponent },
+  { path: 'cart', component: CartComponent}
 ];
 
 @NgModule({
