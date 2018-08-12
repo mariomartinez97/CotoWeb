@@ -72,6 +72,13 @@ export class Database {
     });
   }
 
+  public createReservation(uid: string, reservation: any, success: (reservation) => void, error: () => void): void {
+    reservation['uid'] = uid;
+    this.db.collection('reservations').insert(reservation)
+      .then(writeOpResult => success(writeOpResult))
+      .catch(error);
+  } 
+
 
   // public getSecurityDetails(ticker: string, success: (doc: any) => void, error: () => void): void {
   //     this.db.collection('securities').findOne({ ticker: ticker }, (err: mongo.MongoError, doc: any) => {
