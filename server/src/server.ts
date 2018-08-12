@@ -82,6 +82,10 @@ export class Server {
       );
     });
 
+    this.app.get('/equipment', (req: express.Request, res: express.Response) => {
+      this.db.getEquipment(
+      (result: any[]) => res.json(result), () => res.sendStatus(400));
+    });
 
   //   this.app.get('/securities', (req: express.Request, res: express.Response) => {
   //     this.db.getSecurities(

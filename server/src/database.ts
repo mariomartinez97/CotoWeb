@@ -30,6 +30,16 @@ export class Database {
       .catch(error);
   }
 
+  public getEquipment(success: (collection: any[]) => void, error:() => void): void {
+    this.db.collection('equipment').find().toArray((err: mongo.MongoError, docs: any) => {
+      if(err) {
+        console.log(err);
+      } else {
+        success(docs)
+      }
+    });
+  }
+
   public getFeatures(success: (collection: any[]) => void, error: () => void): void {
     this.db.collection('features').find().toArray((err: mongo.MongoError, docs: any) => {
       if (err) {
