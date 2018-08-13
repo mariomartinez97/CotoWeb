@@ -33,6 +33,7 @@ import { PortfoliosService } from './services/portfolios.service';
 import { ToursService } from './services/tours.service';
 
 import 'hammerjs';
+import { ReservationService } from './services/reservation.service';
 
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
@@ -78,7 +79,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     HistoricalPricesService,
     PortfoliosService,
     AuthGuardComponent,
-    ToursService
+    ToursService,
+    ReservationService
   ],
   bootstrap: [AppComponent]
 })

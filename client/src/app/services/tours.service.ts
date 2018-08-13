@@ -3,7 +3,7 @@ import { Headers, Http } from '@angular/http';
 import { Tours } from '../models/tours'
 import 'rxjs/add/operator/toPromise';
 import { Injectable } from '../../../node_modules/@angular/core';
-import { Tour } from '../models/tour';
+// import { Tour } from '../models/tour';
 
 @Injectable()
 export class ToursService{
