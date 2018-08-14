@@ -60,41 +60,18 @@ export class Database {
       }
     });
   }
-
-  public getReservationById(ID: string, success: (collection: any[]) => void, error: () => void): void {
-    this.db.collection('reservations').find({uid : ID}).toArray((err: mongo.MongoError, docs: any) => {
+  public getReservation(ID: string, success: (collection: any[]) => void, error: () => void): void {
+    this.db.collection('reservations').find({uid : ID}).toArray((err: mongo.MongoError, docs: any[]) => {
       if (err) {
         error();
-      } else {
+      } 
+      else {
+        docs.forEach(item => item['id'] = item._id);
         success(docs);
       }
     });
   }
 
-  
-  //   public getReservationById(uid: string, id: string, success: (portfolio: Reservation) => void, error: () => void): void {
-  //   this.db.collection('reservations')
-  //     .findOne({ uid: uid, _id: new mongo.ObjectID(id) }, (err: mongo.MongoError, doc: any) => {
-  //       if (err) {
-  //         error();
-  //       } else {
-  //         doc['id'] = doc._id;
-  //         success(doc);
-  //       }
-  //     });
-  // }
-//get reservation for 'that' user ORIGINAL
-  //   public getReservation(uid: string, success: (collection: any[]) => void, error: () => void): void {
-  //   this.db.collection('reservations').find({ uid: uid }).toArray((err: mongo.MongoError, docs: any[]) => {
-  //     if (err) {
-  //       error();
-  //     } 
-  //     // else {
-  //     //   docs.forEach(item => item['id'] = item._id);
-  //     //   success(docs);
-  //     // }
-  //   });
-  // }
 
   public getCotizaciones(uid: string, success: (collection: any[]) => void, error: () => void): void {
     this.db.collection('cotizaciones').find().toArray((err: mongo.MongoError, docs: any[]) => {

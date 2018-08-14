@@ -28,7 +28,7 @@ export class PortfoliosService {
   getPortfoliosTemp(): Promise<Reservation[]> {
     return this.authHttp.get(`${environment.apiUrl}/reservations`)
       .toPromise()
-      .then(res => res.json() as Reservation[])
+      .then(res =>res.json() as Reservation[])
       .catch(this.handleError);
   }
 
