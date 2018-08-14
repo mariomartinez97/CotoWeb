@@ -3,7 +3,7 @@ import { PortfoliosService } from '../services/portfolios.service';
 import { SecuritiesService } from '../services/securities.service'
 import { ReservationService } from '../services/reservation.service';
 import { Reservation } from '../models/reservation';
-import { User } from '../models/user';
+import { PInfo } from '../models/user';
 
 @Component({
   selector: 'br-about',
@@ -23,10 +23,10 @@ export class PlanVisitComponent {
   createReservation() {
     //   this.res.createReservation()
     let res = {
-        "user": "u1",
-        "tour": "t1",
+        //"user": "u1",
+        "tour": "tres",
         "equipment": "e1",
-        "priceTotal": "$99"
+        "priceTotal": "$89"
     }
 
     this.res.createReservation(res)

@@ -18,8 +18,10 @@ export class AboutComponent {
   }
 
   test() {
-    this.pser.getPortfolios().then(res => console.log(res));
-    this.temp.getSecurities().then(res=> console.log(res));
-    this.temp.getSecurityDetails('1').then(res=>console.log(res))
+    // this.pser.getPortfolios().then(res => console.log(res));
+    // this.temp.getSecurities().then(res=> console.log(res));
+    // this.temp.getSecurityDetails('1').then(res=>console.log(res))
+    this.pser.getPortfoliosTemp().then(res=> console.log(res));
+    console.log('I saved')
   }
  }

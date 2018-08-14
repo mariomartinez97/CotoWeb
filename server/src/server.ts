@@ -87,11 +87,25 @@ export class Server {
       (result: any[]) => res.json(result), () => res.sendStatus(400));
     });
 
-    this.app.post('/reservation', this.checkJwt, (req: express.Request, res: express.Response) => {
+    this.app.post('/reservations', this.checkJwt, (req: express.Request, res: express.Response) => {
       this.db.createReservation(
         req.user.sub, req.body, (opRes) => res.json(opRes.insertedIds[0]), () => res.sendStatus(400)
       );
     });
+//original
+    //     this.app.get('/reservations', this.checkJwt, (req: express.Request, res: express.Response) => {
+    //   this.db.getReservation(
+    //     req.user.sub, (result: any[]) => res.json(result), () => res.sendStatus(400)
+    //   )
+    // });
+
+    //test
+    this.app.get('/reservations/:uid', (req: express.Request, res: express.Response) => {
+      this.db.getReservationById(
+        req.params.uid, (result: any[]) => res.json(result), () => res.sendStatus(400)
+      );
+    });
+
 
   //   this.app.get('/securities', (req: express.Request, res: express.Response) => {
   //     this.db.getSecurities(

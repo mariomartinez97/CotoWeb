@@ -1,4 +1,4 @@
-export class User {
+export class PInfo {
   username: string;
  name: string;
  email: string;
