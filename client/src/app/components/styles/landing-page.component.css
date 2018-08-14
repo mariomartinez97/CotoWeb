@@ -83,6 +83,27 @@ footer .glyphicon {
   filter: blur(2px);
 }
 
+.background img {
+  width: 100%;
+
+}
+.background2 .cloud {
+  position: absolute;
+  top: 0px;
+  animation: cloudOne infinite 30s linear;
+}
+
+@keyframes cloudOne {
+  0%
+{
+  transform: translateX(-100%);
+}
+100%
+{
+  transform: translateX(100%)
+}
+}
+
 .trours {
   padding: 600px 0 30px;
   text-align: center;
