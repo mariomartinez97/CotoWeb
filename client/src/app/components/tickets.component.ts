@@ -62,13 +62,6 @@ import { ToursService} from '../services/tours.service'
       console.log(this.Tour1);     
     });
 
-    // this.securitiesService.getSecurityDetails('1').then(res => {
-    //   this.Tour1 = res[0].features;
-    //   this.Tour1Price = res[0].price;
-    //   console.log(this.Tour1);
-      
-    // });
-
     this.toursService.getToursById('2').then(res => {
       this.Tour2 = res[0].features;
       this.Tour2Price = res[0].price;
@@ -81,8 +74,51 @@ import { ToursService} from '../services/tours.service'
       this.Tour3Price = res[0].price;
       console.log(this.Tour3Price);
       
-    });
+    });    
   }
+
+  // public createPortfolio(name: HTMLInputElement, parent: HTMLElement): void {
+  //     if (!this.portfolios.find(i => i.name === name.value)) {
+  //       // console.log(this.portfolios);
+  //       this.portfoliosService.create({ name: name.value, items: [] } as Portfolio)
+  //         .then(p=>{
+  //           //  console.log("aaaaa");
+  //             this.loadPortfolios();
+  //             this.selectPortfolio(p);
+  //             this.comboBoxText = p.name;
+  //             // console.log(this.selectedPortfolio);
+  //             // console.log(p.name);
+  //             // console.log(this.comboBoxText);
+  //             //vale = p.name
+  //             name.blur();
+  //             name.value = null;
+  //             parent.classList.remove('is-dirty');
+  //         });
+  //     }
+  //     else {
+  //       let counter: number = 1;
+  //       while (true) {
+  //         let newName: string;
+  //         //console.log(counter);
+  //         newName = name + "(" + counter + ")";
+  //         if (this.portfolios.some(y => y.name == newName)) {
+  //           counter++;
+  //           //console.log(newName);
+  //         }
+  //         else {
+  //           this.portfoliosService.create({ name: newName, items: [] } as Portfolio)
+  //             .then(p=>{
+  //                 this.loadPortfolios();
+  //                 // this.selectPortfolio(p);
+  //                 // this.comboBoxText = p.name;
+  
+  //                 //vale = p.name
+  //             });
+  //           break;
+  //         }
+  //       }
+  //     }
+  //   }
 
   // ngAfterViewInit() {
   //   if (this.auth.isAuthenticated()) {
