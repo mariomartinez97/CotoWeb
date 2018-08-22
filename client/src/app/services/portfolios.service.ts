@@ -3,6 +3,7 @@ import { Headers } from '@angular/http';
 import { AuthHttp } from 'angular2-jwt';
 import { Observable } from 'rxjs/Observable';
 import { environment } from 'environments/environment';
+import { Reservation } from '../models/reservation'
 
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
@@ -21,6 +22,13 @@ export class PortfoliosService {
     return this.authHttp.get(`${environment.apiUrl}/cotizaciones`)
       .toPromise()
       .then(res => res.json() as Cotizaciones[])
+      .catch(this.handleError);
+  }
+
+  getPortfoliosTemp(): Promise<Reservation[]> {
+    return this.authHttp.get(`${environment.apiUrl}/reservations`)
+      .toPromise()
+      .then(res =>res.json() as Reservation[])
       .catch(this.handleError);
   }
 
@@ -52,12 +60,12 @@ export class PortfoliosService {
       .catch(this.handleError);
   }
 
-  getPortfolioReturns(portfolio: Portfolio): Promise<any> {
-    return this.authHttp.get(`${environment.apiUrl}/portfolios/${portfolio.id}/returns`, { headers: this.headers })
-      .toPromise()
-      .then(res => res.json())
-      .catch(this.handleError);
-  }
+  // getPortfolioReturns(portfolio: Portfolio): Promise<any> {
+  //   return this.authHttp.get(`${environment.apiUrl}/portfolios/${portfolio.id}/returns`, { headers: this.headers })
+  //     .toPromise()
+  //     .then(res => res.json())
+  //     .catch(this.handleError);
+  // }
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);

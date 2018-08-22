@@ -1,4 +1,4 @@
-import { PInfo } from './user';
+//import { PInfo } from './user';
 import { Tours } from './tours';
 import { Equipment } from './equipment';
 

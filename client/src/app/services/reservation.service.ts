@@ -14,9 +14,9 @@ export class ReservationService {
 
   createReservation(reservation: any): Promise<Reservation> {
       let res = JSON.parse(JSON.stringify(reservation));
-      return this.authHttp.post(`${environment.apiUrl}/reservation`, JSON.stringify(reservation), {headers: this.headers})
+      return this.authHttp.post(`${environment.apiUrl}/reservations`, JSON.stringify(reservation), {headers: this.headers})
       .toPromise()
-      .then(user => {res = user.json();
+      .then(user => {res.user = user.json();
       return res;
       })
       .catch(this.handleError)
