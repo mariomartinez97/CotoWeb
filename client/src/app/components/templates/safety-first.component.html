@@ -21,13 +21,24 @@
                         <th>Name/Description</th>
                         <th>Amount</th>
                         <th>Price</th>
+                        <th>Total</th>
                     </tr>
                 </thead>
                 <tbody *ngFor='let e of Equipment; let num = index;'>
-                    <td><h5>{{e.name}}</h5><br/> <p>{{e.description}}</p></td>
-                    <td><input style="width: 3em;" id="number" type="number" value="{{e.amount}}"></td>
+                    <td><h5>{{e.name}}</h5> <p>{{e.description}}</p></td>
+                    <td><input style="width: 3em;" id="number" type="number" min="0" value="{{e.amount}}" [(ngModel)]="e.amount"></td>
                     <td>${{e.price}}</td>
+                    <td>${{(e.amount * e.price)}}</td>
+                    <td><button (click)="grandTotal(e.amount, e.price)">+</button></td>
+                    
                 </tbody>
+                
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th>Grand Total: ${{totalEquipment}}</th>
+                        </tr>
             </table>
         </div>
     </div>

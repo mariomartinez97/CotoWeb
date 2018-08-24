@@ -13,6 +13,7 @@ import { ToursService } from '../services/tours.service';
 
 export class SafetyFirstComponent {
     Equipment: any;
+    totalEquipment: number = 0;
 
     constructor(private pser: PortfoliosService,
         private temp: SecuritiesService,
@@ -25,5 +26,11 @@ export class SafetyFirstComponent {
             .then(res => {
                 this.Equipment = res;
             });
+    }
+
+    grandTotal(amt, price) {
+        price = parseInt(price, 10);
+        this.totalEquipment += amt * price;
+        
     }
 }
