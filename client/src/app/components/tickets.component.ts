@@ -11,6 +11,8 @@ import { SecurityFilterPipe } from '../pipes/security-filter.pipe';
 import { SecurityData } from '../models/security-data';
 import { PortfoliosService } from '../services/portfolios.service';
 import { ToursService} from '../services/tours.service'
+import { Reservation } from '../models/reservation';
+import { ReservationService } from '../services/reservation.service';
 
 @Component({
   selector: 'br-securities',
@@ -30,6 +32,7 @@ import { ToursService} from '../services/tours.service'
   load: boolean = true;
   query: string;
   Features: any;
+  reservation: Reservation;
   Tour1; Tour2; Tour3; Tour1Price; Tour2Price; Tour3Price;
 
   constructor(
@@ -37,7 +40,8 @@ import { ToursService} from '../services/tours.service'
     private router: Router,
     private auth: AuthService,
     private portfolioService: PortfoliosService,
-    private toursService: ToursService
+    private toursService: ToursService,
+    private res: ReservationService
   ) {
     console.log("im here") 
     console.log(auth.isAuthenticated().toString())
@@ -76,7 +80,36 @@ import { ToursService} from '../services/tours.service'
       
     });    
   }
+  addToCart(tourID: HTMLInputElement){
+    // push selected tour to reservation to retrieve it on cart screen
+    // get the actual reservation
+    //console.log(tourID);
+    let temp2 = {
+      "tour": '',
+      "equipment": [],
+      "priceTotal": "",
+      "uid": ""
+  }
+    let temp = tourID;
+    // this.res.getReservation().then(resp=> console.log(resp[0].equipment));
+    // console.log('bef')
+  this.res.getReservation().then(resp=> {
+    console.log( resp[0]._id);
+    temp2.equipment = resp[0].equipment;   
+    temp2.priceTotal = resp[0].priceTotal;
+    temp2.tour = resp[0].tour;
+    temp2.uid = resp[0].uid;
+    console.log(temp2.equipment);
 
+  });
+
+  temp2.tour = '1';  
+  //push
+  this.res.createReservation(temp2)
+      .then(a => {
+        temp2;
+      })
+  }
   // public createPortfolio(name: HTMLInputElement, parent: HTMLElement): void {
   //     if (!this.portfolios.find(i => i.name === name.value)) {
   //       // console.log(this.portfolios);
