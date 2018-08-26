@@ -4,7 +4,8 @@ import { Equipment } from './equipment';
 
 export class Reservation {
     //user: PInfo;    
-    tour: Tours;
+    _id: any;
+    tour: any;
     equipment: Equipment[];
     priceTotal: string;
     uid: any;

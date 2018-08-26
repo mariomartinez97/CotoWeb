@@ -25,15 +25,6 @@ export class PortfoliosService {
       .catch(this.handleError);
   }
 
-  getPortfoliosTemp(): Promise<Reservation[]> {
-    return this.authHttp.get(`${environment.apiUrl}/reservations`)
-      .toPromise()
-      .then(res =>res.json() as Reservation[])
-      .catch(this.handleError);
-  }
-
-  
-
   create(portfolio: Portfolio): Promise<Portfolio> {
     let pCopy = JSON.parse(JSON.stringify(portfolio));
     pCopy.items.forEach(i => i.details = undefined);

@@ -11,6 +11,8 @@ import { SecurityFilterPipe } from '../pipes/security-filter.pipe';
 import { SecurityData } from '../models/security-data';
 import { PortfoliosService } from '../services/portfolios.service';
 import { ToursService} from '../services/tours.service'
+import { Reservation } from '../models/reservation';
+import { ReservationService } from '../services/reservation.service';
 
 @Component({
   selector: 'br-securities',
@@ -30,6 +32,7 @@ import { ToursService} from '../services/tours.service'
   load: boolean = true;
   query: string;
   Features: any;
+  reservation: Reservation;
   Tour1; Tour2; Tour3; Tour1Price; Tour2Price; Tour3Price;
 
   constructor(
@@ -37,7 +40,8 @@ import { ToursService} from '../services/tours.service'
     private router: Router,
     private auth: AuthService,
     private portfolioService: PortfoliosService,
-    private toursService: ToursService
+    private toursService: ToursService,
+    private res: ReservationService
   ) {
     console.log("im here") 
     console.log(auth.isAuthenticated().toString())
@@ -62,13 +66,6 @@ import { ToursService} from '../services/tours.service'
       console.log(this.Tour1);     
     });
 
-    // this.securitiesService.getSecurityDetails('1').then(res => {
-    //   this.Tour1 = res[0].features;
-    //   this.Tour1Price = res[0].price;
-    //   console.log(this.Tour1);
-      
-    // });
-
     this.toursService.getToursById('2').then(res => {
       this.Tour2 = res[0].features;
       this.Tour2Price = res[0].price;
@@ -81,8 +78,80 @@ import { ToursService} from '../services/tours.service'
       this.Tour3Price = res[0].price;
       console.log(this.Tour3Price);
       
-    });
+    });    
   }
+  addToCart(tourID: HTMLInputElement){
+    // push selected tour to reservation to retrieve it on cart screen
+    // get the actual reservation
+    //console.log(tourID);
+    let temp2 = {
+      "tour": '',
+      "equipment": [],
+      "priceTotal": "",
+      "uid": ""
+  }
+    let temp = tourID;
+    // this.res.getReservation().then(resp=> console.log(resp[0].equipment));
+    // console.log('bef')
+  this.res.getReservation().then(resp=> {
+    console.log( resp[0]._id);
+    temp2.equipment = resp[0].equipment;   
+    temp2.priceTotal = resp[0].priceTotal;
+    temp2.tour = resp[0].tour;
+    temp2.uid = resp[0].uid;
+    console.log(temp2.equipment);
+
+  });
+
+  temp2.tour = '1';  
+  //push
+  this.res.createReservation(temp2)
+      .then(a => {
+        temp2;
+      })
+  }
+  // public createPortfolio(name: HTMLInputElement, parent: HTMLElement): void {
+  //     if (!this.portfolios.find(i => i.name === name.value)) {
+  //       // console.log(this.portfolios);
+  //       this.portfoliosService.create({ name: name.value, items: [] } as Portfolio)
+  //         .then(p=>{
+  //           //  console.log("aaaaa");
+  //             this.loadPortfolios();
+  //             this.selectPortfolio(p);
+  //             this.comboBoxText = p.name;
+  //             // console.log(this.selectedPortfolio);
+  //             // console.log(p.name);
+  //             // console.log(this.comboBoxText);
+  //             //vale = p.name
+  //             name.blur();
+  //             name.value = null;
+  //             parent.classList.remove('is-dirty');
+  //         });
+  //     }
+  //     else {
+  //       let counter: number = 1;
+  //       while (true) {
+  //         let newName: string;
+  //         //console.log(counter);
+  //         newName = name + "(" + counter + ")";
+  //         if (this.portfolios.some(y => y.name == newName)) {
+  //           counter++;
+  //           //console.log(newName);
+  //         }
+  //         else {
+  //           this.portfoliosService.create({ name: newName, items: [] } as Portfolio)
+  //             .then(p=>{
+  //                 this.loadPortfolios();
+  //                 // this.selectPortfolio(p);
+  //                 // this.comboBoxText = p.name;
+  
+  //                 //vale = p.name
+  //             });
+  //           break;
+  //         }
+  //       }
+  //     }
+  //   }
 
   // ngAfterViewInit() {
   //   if (this.auth.isAuthenticated()) {

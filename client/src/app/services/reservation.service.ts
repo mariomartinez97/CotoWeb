@@ -22,6 +22,13 @@ export class ReservationService {
       .catch(this.handleError)
     }
 
+    getReservation(): Promise<Reservation[]> {
+        return this.authHttp.get(`${environment.apiUrl}/reservations`)
+          .toPromise()
+          .then(res =>res.json() as Reservation[])
+          .catch(this.handleError);
+      }
+
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
