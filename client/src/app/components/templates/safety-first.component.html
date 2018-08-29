@@ -1,11 +1,9 @@
 <div class="container-fluid">
         <div class="row">
           <div class="col-sm-8">
-            <h2>About Project Page</h2>
-            <h4 class="animated slideInLeft">The project is for educational purpose only.</h4>
-            <p class="animated slideInLeft">Project developed by four people as part of final project at Full Sail.
-            This application uses data that is not up to date with today's stock market.</p>
-            <button title="Contact" onclick="window.scrollTo(0, 1800)" class="btn btn-default btn-lg animated slideInLeft">Get in Touch</button>
+            <h2>Safety First</h2>
+            <h4 class="animated slideInLeft">Add equipment for your trip</h4>
+            <p class="animated slideInLeft">It's good to be prepared for the trip to Cotopaxi.</p>
           </div>
           <div class="col-sm-4">
             <span class="fa fa-line-chart logo animated slideInRight"></span>
@@ -15,19 +13,39 @@
 
     <div class="container-fluid">
         <div class="row">
-            <table width="100%">
+            <table id="equipmentTbl" width="100%">
                 <thead class="text-success">
                     <tr>
                         <th>Name/Description</th>
                         <th>Amount</th>
                         <th>Price</th>
+                        <th>Total</th>
                     </tr>
                 </thead>
                 <tbody *ngFor='let e of Equipment; let num = index;'>
-                    <td><h5>{{e.name}}</h5><br/> <p>{{e.description}}</p></td>
-                    <td><input style="width: 3em;" id="number" type="number" value="{{e.amount}}"></td>
+                    <td><h5>{{e.name}}</h5> <p>{{e.description}}</p></td>
+                    <td><input (change)="sendGrandTotal($event)" style="width: 3em;" id="number" type="number" min="0" value="{{e.amount}}" [(ngModel)]="e.amount"></td>
                     <td>${{e.price}}</td>
+                    <td>${{(e.amount * e.price)}}</td>
+                    <!-- <td><button (click)="grandTotal(e.amount, e.price)">+</button></td> -->
+                    <!-- <td id="total">{{(e.amount * e.price)}}</td> -->
                 </tbody>
+                <tfoot>
+                        <tr>
+                          <th id="total" colspan="3">Total :
+                              <br/><button *ngIf="area_total">TEST</button>
+                          </th>
+                          <td id="area_total">
+                          </td>
+                        </tr>
+                       </tfoot>
+                        <!-- <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th style="width: 200px;">Grand Total: ${{totalEquipment}}<br/>
+                            <button (click)="addToTour(totalEquipment)">Add to tour</button></th>
+                        </tr> -->
             </table>
         </div>
     </div>
