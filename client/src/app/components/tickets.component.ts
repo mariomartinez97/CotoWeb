@@ -33,7 +33,7 @@ import { TouchSequence } from '../../../node_modules/@types/selenium-webdriver';
   load: boolean = true;
   query: string;
   Features: any;
-  reservation: Reservation[]= [];
+  reservation: Reservation[] = [];
   Tour1; Tour2; Tour3; Tour1Price; Tour2Price; Tour3Price;
 
   constructor(
@@ -90,13 +90,11 @@ import { TouchSequence } from '../../../node_modules/@types/selenium-webdriver';
     console.log(tourID.toString());
 
     let temp2 = {
-      "id":'',
       "tour": '',
       "equipment": [],
       "priceTotal": "",
       "uid": ""
   }
-    let temp = tourID;
     // this.res.getReservation().then(resp=> console.log(resp[0].equipment));
     // console.log('bef')
   this.res.getReservation().then(resp=> {
@@ -108,50 +106,15 @@ import { TouchSequence } from '../../../node_modules/@types/selenium-webdriver';
     this.reservation.push({_id: resp[0]._id, tour: temp2.tour, equipment: temp2.equipment, uid: temp2.uid} as Reservation);
     console.log(this.reservation[0])
     // this.reservation.id = temp2.id;
-    this.res.deleteReservation(this.reservation[0]);
-  //   temp2.tour = tourID.toString();
-  //   let nId =  Math.floor(Math.random()*6)+1;
-  // temp2._id = nId.toString();
-  // this.res.createReservation(temp2)
-  //   .then(a => {
-  //     temp2;
-  //   });    
+    this.res.deleteReservation(resp[0]._id).then(respDel=>{
+      //console.log('respDel' + respDel);
+      temp2.tour = tourID.toString();  
+      this.res.createReservation(temp2);
+    });
+    
   });
-  // temp2.tour = tourID.toString();  
-  // console.log(temp2.tour);
-  // console.log("testing this")
-  //push 
-//  this.securities.push({ ticker: this.detail.ticker, security: this.detail.security, sector: this.detail.sector, industry: this.detail.industry } as SecurityData);
-
-  }
-getReservations(): void{
-    // public loadPortfolios(): void {
-  //   let promises: Promise<any>[] = [];
-  let promises: Promise<any>[] = [];
-  this.res.getReservation().then(port=>{
-    if(port.length){
-      port.forEach(p=>
-      promises.push())
-    }
-  })
-  //   this.portfoliosService.getPortfolios().then(portfolios => {
-  //     if (portfolios.length) {
-  //       portfolios.forEach(p =>
-  //         p.items.forEach(item =>
-  //           promises.push(this.securitiesService.getSecurityDetails(item.symbol)
-  //             .then(details => item.details = details)
-  //           )
-  //         )
-  //       );
-  //     }
-  //     Promise.all(promises).then(() => {this.portfolios = portfolios
-  //     this.spinner = false})
-  //   });
-
-  // }
-
-
 }
+
 
   // public createPortfolio(name: HTMLInputElement, parent: HTMLElement): void {
   //     if (!this.portfolios.find(i => i.name === name.value)) {

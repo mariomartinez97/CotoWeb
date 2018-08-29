@@ -29,8 +29,8 @@ export class ReservationService {
           .catch(this.handleError);
       }
 
-    deleteReservation(res: Reservation): Promise<any> {
-        return this.authHttp.delete(`${environment.apiUrl}/reservations/${res._id}`, { headers: this.headers })
+    deleteReservation(res: string): Promise<any> {
+        return this.authHttp.delete(`${environment.apiUrl}/reservations/${res}`, { headers: this.headers })
           .toPromise()
           .then(() => null)
           .catch(this.handleError);
