@@ -75,6 +75,7 @@ footer .glyphicon {
   alt: "404";
   opacity: .8;
   z-index: 0;
+  overflow: hidden;
 
   -webkit-filter: blur(2px);
   -moz-filter: blur(2px);
@@ -83,14 +84,14 @@ footer .glyphicon {
   filter: blur(2px);
 }
 
-.background img {
+.background2 img {
   width: 100%;
 
 }
 .background2 .cloud {
   position: absolute;
   top: 0px;
-  animation: cloudOne infinite 30s linear;
+  animation: cloudOne infinite 100s linear;
 }
 
 @keyframes cloudOne {
@@ -100,7 +101,41 @@ footer .glyphicon {
 }
 100%
 {
-  transform: translateX(100%)
+  transform: translateX(300%)
+}
+}
+
+.background2 .cloud2 {
+  position: absolute;
+  top: 0px;
+  animation: cloudTwo infinite 45s linear;
+}
+
+@keyframes cloudTwo {
+  0%
+{
+  transform: translateX(-100%);
+}
+100%
+{
+  transform: translateX(500%)
+}
+}
+
+.background2 .cloud3 {
+  position: absolute;
+  top: 0px;
+  animation: cloudThree infinite 60s linear;
+}
+
+@keyframes cloudThree {
+  0%
+{
+  transform: translateX(-100%);
+}
+100%
+{
+  transform: translateX(400%)
 }
 }
 
@@ -132,4 +167,19 @@ footer .glyphicon {
   border-radius: 50%;
   background-color: #86d690;
   color: #fff;
+}
+
+#cloudSize {
+  width: 600px;
+  height: 300px;
+}
+
+#cloud2Size {
+  width: 300px;
+  height: 150px;
+}
+
+#cloud3Size {
+  width: 400px;
+  height: 200px;
 }
