@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PortfoliosService } from '../services/portfolios.service';
 import { SecuritiesService } from '../services/securities.service'
 import { ToursService } from '../services/tours.service';
+import { ReservationService } from '../services/reservation.service';
 
 declare let $: any;
 
@@ -15,10 +16,12 @@ declare let $: any;
 export class SafetyFirstComponent {
     Equipment: any;
     totalEquipment: number = 0;
+    isTotal: Number = 0;
 
     constructor(private pser: PortfoliosService,
         private temp: SecuritiesService,
-        private tourService: ToursService) {
+        private tourService: ToursService,
+        private reservationService: ReservationService) {
 
     }
 
@@ -42,22 +45,18 @@ export class SafetyFirstComponent {
         //     console.log(a, b)
         //     return a + parseInt(b.innerText);
         // }, 0);
-        var total  = [];
+        var total = 0;
         console.log(td.length);
+        
         for (let i = 0; i < td.length; i++) {
             
-            total[i] += parseInt(td[i].textContent.replace('$', ''))
+            total += parseInt(td[i].textContent.replace('$', ''))
         }
-
-
         //total = parseInt(td[0].textContent.replace('$', '')) +  parseInt(td[1].textContent.replace('$', ''));
         // total += parseInt(td[1].innerHTML);
         
-        function getSum(total, num) {
-                return total + num;
-            }
-        
-        document.getElementById('area_total').innerText = '$'+total.reduce(getSum);
+        document.getElementById('area_total').innerText = '$'+total;
+        this.isTotal = total;
     }
 
     grandTotal(amt, price) {

@@ -31,11 +31,12 @@
                     <!-- <td id="total">{{(e.amount * e.price)}}</td> -->
                 </tbody>
                 <tfoot>
+                    <hr/>
                         <tr>
                           <th id="total" colspan="3">Total :
-                              <br/><button *ngIf="area_total">TEST</button>
+                              <br/><button *ngIf="isTotal > 0" (click)="addToTour()" class="btn btn-success">Add to Tour</button>
                           </th>
-                          <td id="area_total">
+                          <td style="font-size: 25px" id="area_total">
                           </td>
                         </tr>
                        </tfoot>
