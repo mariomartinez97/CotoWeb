@@ -99,6 +99,12 @@ export class Server {
       )
     }); 
 
+    this.app.delete('/reservations/:id', this.checkJwt, (req: express.Request, res: express.Response) => {
+      this.db.deleteReservationById(
+        req.user.sub, req.params.id, () => res.sendStatus(200), () => res.sendStatus(400)
+      );
+    });
+
   //   this.app.get('/securities', (req: express.Request, res: express.Response) => {
   //     this.db.getSecurities(
   //       (result: any[]) => res.json(result),

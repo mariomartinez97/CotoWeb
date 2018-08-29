@@ -13,6 +13,7 @@ import { PortfoliosService } from '../services/portfolios.service';
 import { ToursService} from '../services/tours.service'
 import { Reservation } from '../models/reservation';
 import { ReservationService } from '../services/reservation.service';
+import { TouchSequence } from '../../../node_modules/@types/selenium-webdriver';
 
 @Component({
   selector: 'br-securities',
@@ -32,7 +33,7 @@ import { ReservationService } from '../services/reservation.service';
   load: boolean = true;
   query: string;
   Features: any;
-  reservation: Reservation;
+  reservation: Reservation[]= [];
   Tour1; Tour2; Tour3; Tour1Price; Tour2Price; Tour3Price;
 
   constructor(
@@ -84,7 +85,12 @@ import { ReservationService } from '../services/reservation.service';
     // push selected tour to reservation to retrieve it on cart screen
     // get the actual reservation
     //console.log(tourID);
+    console.log(tourID.value);
+    console.log("middle");
+    console.log(tourID.toString());
+
     let temp2 = {
+      "id":'',
       "tour": '',
       "equipment": [],
       "priceTotal": "",
@@ -94,22 +100,59 @@ import { ReservationService } from '../services/reservation.service';
     // this.res.getReservation().then(resp=> console.log(resp[0].equipment));
     // console.log('bef')
   this.res.getReservation().then(resp=> {
-    console.log( resp[0]._id);
+    console.log('id is:'+ resp[0]._id);
     temp2.equipment = resp[0].equipment;   
     temp2.priceTotal = resp[0].priceTotal;
     temp2.tour = resp[0].tour;
-    temp2.uid = resp[0].uid;
-    console.log(temp2.equipment);
-
+    temp2.uid = resp[0].uid; 
+    this.reservation.push({_id: resp[0]._id, tour: temp2.tour, equipment: temp2.equipment, uid: temp2.uid} as Reservation);
+    console.log(this.reservation[0])
+    // this.reservation.id = temp2.id;
+    this.res.deleteReservation(this.reservation[0]);
+  //   temp2.tour = tourID.toString();
+  //   let nId =  Math.floor(Math.random()*6)+1;
+  // temp2._id = nId.toString();
+  // this.res.createReservation(temp2)
+  //   .then(a => {
+  //     temp2;
+  //   });    
   });
+  // temp2.tour = tourID.toString();  
+  // console.log(temp2.tour);
+  // console.log("testing this")
+  //push 
+//  this.securities.push({ ticker: this.detail.ticker, security: this.detail.security, sector: this.detail.sector, industry: this.detail.industry } as SecurityData);
 
-  temp2.tour = '1';  
-  //push
-  this.res.createReservation(temp2)
-      .then(a => {
-        temp2;
-      })
   }
+getReservations(): void{
+    // public loadPortfolios(): void {
+  //   let promises: Promise<any>[] = [];
+  let promises: Promise<any>[] = [];
+  this.res.getReservation().then(port=>{
+    if(port.length){
+      port.forEach(p=>
+      promises.push())
+    }
+  })
+  //   this.portfoliosService.getPortfolios().then(portfolios => {
+  //     if (portfolios.length) {
+  //       portfolios.forEach(p =>
+  //         p.items.forEach(item =>
+  //           promises.push(this.securitiesService.getSecurityDetails(item.symbol)
+  //             .then(details => item.details = details)
+  //           )
+  //         )
+  //       );
+  //     }
+  //     Promise.all(promises).then(() => {this.portfolios = portfolios
+  //     this.spinner = false})
+  //   });
+
+  // }
+
+
+}
+
   // public createPortfolio(name: HTMLInputElement, parent: HTMLElement): void {
   //     if (!this.portfolios.find(i => i.name === name.value)) {
   //       // console.log(this.portfolios);

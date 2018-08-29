@@ -91,6 +91,11 @@ export class Database {
       .catch(error);
   } 
 
+  public deleteReservationById(uid: string, id: any, success: () => void, error: () => void): void {
+    this.db.collection('reservations').deleteOne({ uid: uid, _id: new mongo.ObjectID(id) })
+      .then(success)
+      .catch(error);
+  }
 
   // public getSecurityDetails(ticker: string, success: (doc: any) => void, error: () => void): void {
   //     this.db.collection('securities').findOne({ ticker: ticker }, (err: mongo.MongoError, doc: any) => {
