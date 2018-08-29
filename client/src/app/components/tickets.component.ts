@@ -94,11 +94,11 @@ import { ReservationService } from '../services/reservation.service';
     // this.res.getReservation().then(resp=> console.log(resp[0].equipment));
     // console.log('bef')
   this.res.getReservation().then(resp=> {
-    console.log( resp[0]._id);
+    // console.log( resp[0]._id);
     temp2.equipment = resp[0].equipment;   
     temp2.priceTotal = resp[0].priceTotal;
-    temp2.tour = resp[0].tour;
-    temp2.uid = resp[0].uid;
+    // temp2.tour = resp[0].tour;
+    // temp2.uid = resp[0].uid;
     console.log(temp2.equipment);
 
   });

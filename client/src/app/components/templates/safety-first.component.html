@@ -13,7 +13,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <table width="100%">
+            <table id="equipmentTbl" width="100%">
                 <thead class="text-success">
                     <tr>
                         <th>Name/Description</th>
@@ -24,20 +24,28 @@
                 </thead>
                 <tbody *ngFor='let e of Equipment; let num = index;'>
                     <td><h5>{{e.name}}</h5> <p>{{e.description}}</p></td>
-                    <td><input style="width: 3em;" id="number" type="number" min="0" value="{{e.amount}}" [(ngModel)]="e.amount"></td>
+                    <td><input (change)="sendGrandTotal($event)" style="width: 3em;" id="number" type="number" min="0" value="{{e.amount}}" [(ngModel)]="e.amount"></td>
                     <td>${{e.price}}</td>
                     <td>${{(e.amount * e.price)}}</td>
-                    <td><button (click)="grandTotal(e.amount, e.price)">+</button></td>
-                    
+                    <!-- <td><button (click)="grandTotal(e.amount, e.price)">+</button></td> -->
+                    <!-- <td id="total">{{(e.amount * e.price)}}</td> -->
                 </tbody>
-                
+                <tfoot>
                         <tr>
+                          <th id="total" colspan="3">Total :
+                              <br/><button *ngIf="area_total">TEST</button>
+                          </th>
+                          <td id="area_total">
+                          </td>
+                        </tr>
+                       </tfoot>
+                        <!-- <tr>
                             <th></th>
                             <th></th>
                             <th></th>
                             <th style="width: 200px;">Grand Total: ${{totalEquipment}}<br/>
-                            <button>Add to tour</button></th>
-                        </tr>
+                            <button (click)="addToTour(totalEquipment)">Add to tour</button></th>
+                        </tr> -->
             </table>
         </div>
     </div>
