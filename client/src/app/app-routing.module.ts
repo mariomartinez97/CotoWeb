@@ -16,6 +16,10 @@ import { PlanVisitComponent } from './components/plan-visit.component';
 import { SafetyFirstComponent } from './components/safety-first.component';
 import { CartComponent} from './components/cart.component';
 
+import { Tour1Component } from './components/tour1.component';
+import { Tour2Component } from './components/tour2.component';
+import { Tour3Component } from './components/tour3.component';
+
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -27,7 +31,11 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'visit', component: PlanVisitComponent },
   { path: 'safety', component: SafetyFirstComponent },
-  { path: 'cart', component: CartComponent}
+  { path: 'cart', component: CartComponent},
+  { path: 'tour-1', component: Tour1Component },
+  { path: 'tour-2', component: Tour2Component },
+  { path: 'tour-3', component: Tour3Component },
+
 ];
 
 @NgModule({

@@ -1,0 +1,111 @@
+<div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-8">
+            <h2>About Project Page</h2>
+            <h4 class="animated slideInLeft">The project is for educational purpose only.</h4>
+            <p class="animated slideInLeft">Project developed by four people as part of final project at Full Sail.
+            This application uses data that is not up to date with today's stock market.</p>
+            <button title="Contact" onclick="window.scrollTo(0, 1800)" class="btn btn-default btn-lg animated slideInLeft">Get in Touch</button>
+          </div>
+          <div class="col-sm-4">
+            <span class="fa fa-line-chart logo animated slideInRight"></span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="container-fluid bg-grey">
+        <div class="row">
+          <div class="col-sm-4">
+            <span class="glyphicon glyphicon-usd logo animated slideInLeft"></span>
+          </div>
+          <div class="col-sm-8">
+            <h2>Our Values</h2>
+            <h4 class="animated slideInRight"><strong>MISSION:</strong> Our mission is to provide users with a place to create and keep track of their stock portfolios.</h4>
+            <p class="animated slideInRight"><strong>VISION:</strong> Our vision for the application to be used as any other financial web sites where people can check on their stocks, portfolios, and risks.</p>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid text-center">
+        <h2>SERVICES</h2>
+        <h4>What we offer</h4>
+        <br>
+        <div class="row">
+          <div class="col-sm-4">
+            <span class="fa fa-area-chart logo-small"></span>
+            <h4>POWER</h4>
+            <p>Powerful and visually appealing graphs</p>
+          </div>
+          <div class="col-sm-4">
+            <span class="fa fa-users logo-small"></span>
+            <h4>USERS</h4>
+            <p>Safe account based system</p>
+          </div>
+          <div class="col-sm-4">
+            <span class="glyphicon glyphicon-folder-open logo-small"></span>
+            <h4>Portfolios</h4>
+            <p>Create and manage your own portfolios</p>
+          </div>
+          </div>
+      </div>
+      
+      <div class="container-fluid text-center bg-white">
+        <h2>Portfolio</h2>
+        <h4>What we have created</h4>
+        <div class="row text-center">
+          <div class="col-sm-4">
+            <div class="thumbnail">
+              <img routerLink="/" src="../../../assets/mainpage.PNG" alt="Buffalo">
+              <p><strong>Buffalo Risk</strong></p>
+              <p>Buffalo Risk built using MEAN Stack</p>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="thumbnail">
+              <img src="../../../assets/graph.PNG" alt="Graph">
+              <p><strong>Graphs</strong></p>
+              <p>Powered by Chart.js</p>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="thumbnail">
+              <img src="../../../assets/portfolio.PNG" alt="Porfolio">
+              <p><strong>Portfolio</strong></p>
+              <p>Personalized stock finances</p>
+            </div>
+          </div>
+      </div>
+      
+      <div class="container-fluid bg-grey">
+        <h2 class="text-center">CONTACT</h2>
+        <div class="row">
+          <div class="col-sm-5">
+            <p>This is a contact page with some basic contact information and a contact form.</p>
+            <p><span class="glyphicon glyphicon-map-marker"></span> Orlando, FL</p>
+            <p><span class="glyphicon glyphicon-phone"></span> (407) 438-2387</p>
+            <p><span class="glyphicon glyphicon-envelope"></span> BuffaloRisk@buffalo.com</p>
+          </div>
+          <div class="col-sm-7">
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <input #name class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+              </div>
+              <div class="col-sm-6 form-group">
+                <input #email class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+              </div>
+            </div>
+            <textarea #comment class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+            <div class="row">
+              <div class="col-sm-12 form-group">
+                <button class="btn btn-default pull-right" (click)="email.value=''; name.value=''; comment.value=''" type="submit">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <a onclick="window.scrollTo(0, 0)" title="To Top">
+        <footer class="container-fluid text-center">
+          <span class="glyphicon glyphicon-chevron-up"></span>
+        </footer>
+      </a>
+      
