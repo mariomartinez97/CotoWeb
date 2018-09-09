@@ -1,78 +1,67 @@
-<div class="container-fluid" style="padding-top: 0px;">
-    <div class="row">
-      <div class="col-sm-8">
-        <h2>Cart Page</h2>
-        <div class="col-sm-4">
-            <img class="logo animated slideInLeft" src="../../../assets/graph.PNG" style="width: 200px; height: 200px;" alt="Picture1">
-          </div>
-  
-        <h4 class="animated slideInRight"  style="padding-left: 500px;width: 1200px;">Lorem ipsum, dolor sit amet consectetur.</h4>
-        <p class="animated slideInRight"  style="padding-left: 500px;width: 1100px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque dignissimos perferendis corporis? Eaque ullam mollitia expedita officiis quibusdam eveniet ratione quas. 
-          Non consectetur atque ab sint consequatur architecto eius voluptatem!</p>
-        <!-- <button title="Contact" onclick="window.scrollTo(0, 1800)" class="btn btn-default btn-lg animated slideInLeft">Get in Touch</button> -->
-      </div>
-     
-    </div>
-  </div>
-  
   <div class="container-fluid">
     <div class="row">
       <table class="table table-hover" width="100%">
         <thead class="text-success">
           <tr>
-            <th>Tour 1</th>
-            <th>Tour 2</th>
-            <th>Tour 3</th>
-          </tr>
+            <th>ITEMS</th>
+            <th>PRICE</th>
+          </tr>          
         </thead>
         <tbody>
           <td>
             <tr >
               <td style="padding-top: 10px; padding-bottom: 10px">
-                1
+                Tour {{tourInfo.tourId}}
+              </td>
+              <td>
+                ${{tourInfo.price}}
+              </td>
+            </tr>
+            <tr *ngFor='let eq of reservation.equipment; let num = index;'>
+              <td style="padding-top: 10px; padding-bottom: 10px">
+                {{eq.name}}
+              </td>
+              <td>
+                ${{eq.price}}
               </td>
             </tr>
           </td>
-  
-          <td style="padding-bottom: 80px">
-            <tr>
-              <td style="padding-top: 10px; padding-bottom: 10px">
-                2
-              </td>
-            </tr>
-          </td>
-  
-          <div>
-            <tr>
-              <td style="padding-top: 10px; padding-bottom: 10px">
-                3
-              </td>
-            </tr>
-          </div>
           <tr>
-            <td>
-              <br/>
-              <a>More Info</a>
-              <br/>
-              <button>Add To Cart</button>
+            <td>              
             </td>
             <td>
-              <br/>
-              <a>More Info</a>
-              <br/>
-              <button>Add To Cart</button>
+              TOTAL: {{reservation.priceTotal}}              
             </td>
             <td>
-              <br/>
-              <a>More Info</a>
-              <br/>
-              <button>Add To Cart</button>
-            </td>
-          </tr>
+            <button>Proceed to checkout</button>
+            </td>            
+          </tr>                                
         </tbody>
       </table>
     </div>
   </div>
+
+  <div class="col-sm-7">
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <input #name class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+      </div>
+      <div class="col-sm-6 form-group">
+        <input #name class="form-control" id="lastname" name="lastname" placeholder="Last Name" type="text" required>
+      </div>          
+  </div>
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <input #name class="form-control" id="phone" name="phone" placeholder="Phone Number" type="text" optional>
+    </div>           
+  </div>
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <button>Next</button>
+    </div>           
+  </div>
+  
+
   
   <a onclick="window.scrollTo(0, 0)" title="To Top">
     <footer class="container-fluid text-center">
