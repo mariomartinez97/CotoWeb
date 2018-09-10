@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewChecked } from '@angular/core';
 import { ReservationService } from '../services/reservation.service';
 import { ToursService } from '../services/tours.service'
 import { Reservation } from '../models/reservation';
 import { Tours } from '../models/tours';
+import { resolve } from 'url';
+import { reject } from '../../../node_modules/@types/q';
 
+declare let paypal: any;
 
 @Component({
   selector: 'br-about',
@@ -16,6 +19,32 @@ export class CartComponent {
 
   reservation: Reservation = new Reservation;
   tourInfo: Tours = new Tours;
+  addScript: boolean = false;
+  paypalLoad: boolean = true;
+
+
+  paypalConfig = {
+    env:'sandbox',
+    client: {
+      sandbox:'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+      production:'<insert production client id>'
+    },
+    commit: true,
+    payment: (data, actions)=>{
+      return actions.payment.create({
+        payment:{
+          transactions:[
+            {amount: { total: '0.01', currency: 'USD' }}
+          ]
+        }
+      });
+    },
+    onAuthorize:(data, actions)=>{
+      return actions.payment.excecute().then((paymente)=>{
+        //do something after payment
+      })
+    }
+  };
 
   constructor(private rService: ReservationService,
               private tService: ToursService
@@ -36,7 +65,28 @@ export class CartComponent {
         this.tourInfo.tourId = resp[0].tourId;
         this.tourInfo.price = resp[0].price;
       });
-    });
-       
+    });       
   }
+
+
+
+  ngAfterViewChecked():void{
+    if(!this.addScript){
+      this.addPaypalScript().then(()=>{
+        paypal.Button.render(this.paypalConfig, '#paypal-checkout-btn');
+        this.paypalLoad = false;
+      })
+    }
+  }
+
+  addPaypalScript(){
+    this.addScript = true;
+    return new Promise((resolve,reject)=>{
+      let scripttagelement = document.createElement('script');
+      scripttagelement.src = 'https://www.paypalobjects.com/api/checkout.js';
+      scripttagelement.onload = resolve;
+      document.body.appendChild(scripttagelement);
+    })
+  }
+
  }
