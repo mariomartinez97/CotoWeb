@@ -14,6 +14,7 @@ import { ToursService} from '../services/tours.service'
 import { Reservation } from '../models/reservation';
 import { ReservationService } from '../services/reservation.service';
 import { TouchSequence } from '../../../node_modules/@types/selenium-webdriver';
+import { Tours } from '../models/tours';
 
 @Component({
   selector: 'br-securities',
@@ -35,6 +36,7 @@ import { TouchSequence } from '../../../node_modules/@types/selenium-webdriver';
   Features: any;
   reservation: Reservation[] = [];
   Tour1; Tour2; Tour3; Tour1Price; Tour2Price; Tour3Price;
+  resTour: Tours = new Tours;
 
   constructor(
     private securitiesService: SecuritiesService,
@@ -90,7 +92,7 @@ import { TouchSequence } from '../../../node_modules/@types/selenium-webdriver';
     console.log(tourID.toString());
 
     let temp2 = {
-      "tour": '',
+      "tour": this.resTour,
       "equipment": [],
       "priceTotal": "",
       "uid": ""
@@ -103,12 +105,12 @@ import { TouchSequence } from '../../../node_modules/@types/selenium-webdriver';
     temp2.priceTotal = resp[0].priceTotal;
     temp2.tour = resp[0].tour;
     temp2.uid = resp[0].uid; 
-    this.reservation.push({_id: resp[0]._id, tour: temp2.tour, equipment: temp2.equipment, uid: temp2.uid} as Reservation);
+    this.reservation.push({_id: resp[0]._id, tour: resp[0].tour, equipment: resp[0].equipment, uid: resp[0].uid} as Reservation);
     console.log(this.reservation[0])
     // this.reservation.id = temp2.id;
     this.res.deleteReservation(resp[0]._id).then(respDel=>{
       //console.log('respDel' + respDel);
-      temp2.tour = tourID.toString();  
+      temp2.tour.tourId = tourID.toString();  
       this.res.createReservation(temp2);
     });
     
