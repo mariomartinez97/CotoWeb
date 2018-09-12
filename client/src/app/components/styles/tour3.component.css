@@ -1,0 +1,11 @@
+.thirty {
+    width: 30%;
+    display: block;
+    float: right;
+  }
+  
+  .seventy {
+    width: 70%;
+    display: block;
+    float: left;
+  }
