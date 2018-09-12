@@ -8,6 +8,7 @@ export class Reservation {
     equipment: Equipment[];
     priceTotal: string;
     uid: any;
+    
   }
   
   
