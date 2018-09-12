@@ -21,6 +21,11 @@ export class CartComponent {
   tourInfo: Tours = new Tours;
   addScript: boolean = false;
   paypalLoad: boolean = true;
+  cartChart: boolean = true;
+  checkInfo: boolean = false;
+  checkOut: boolean = false;
+  temp: boolean = false;  
+
 
 
   paypalConfig = {
@@ -68,18 +73,32 @@ export class CartComponent {
     });       
   }
 
-
-
-  ngAfterViewChecked():void{
-    if(!this.addScript){
-      this.addPaypalScript().then(()=>{
-        paypal.Button.render(this.paypalConfig, '#paypal-checkout-btn');
-        this.paypalLoad = false;
-      })
-    }
+callRender(){
+  if(!this.addScript){
+    this.addPaypalScript().then(()=>{        
+        paypal.Button.render(this.paypalConfig, '#paypal-checkout-btn');                          
+      this.paypalLoad = false;
+      return;
+    })
   }
+}
 
-  addPaypalScript(){
+  // ngAfterViewChecked():void{
+  //   if(this.checkOut == true){
+  //   console.log('should work');
+  //   console.log(this.checkOut);
+  //   if(!this.addScript){
+  //     this.addPaypalScript().then(()=>{        
+  //         paypal.Button.render(this.paypalConfig, '#paypal-checkout-btn');                          
+  //       this.paypalLoad = false;
+  //       return;
+  //     })
+  //   }
+  // }
+  // }
+
+  addPaypalScript(){  
+    console.log("in here")  
     this.addScript = true;
     return new Promise((resolve,reject)=>{
       let scripttagelement = document.createElement('script');
@@ -88,5 +107,24 @@ export class CartComponent {
       document.body.appendChild(scripttagelement);
     })
   }
+
+  toggleMenu(){
+    if(this.cartChart == true){
+      this.cartChart = false;
+      this.checkInfo = true;
+      this.checkOut = false;
+    }
+    else if(this.checkInfo == true){
+      console.log('Logic is fine')
+      this.checkInfo = false;
+      this.checkOut = true;
+      this.callRender();
+      
+      this.cartChart = false;
+    }
+
+  }
+
+
 
  }
