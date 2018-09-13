@@ -70,8 +70,9 @@ export class CartComponent {
       this.reservation.priceTotal = resp[0].priceTotal;
       this.reservation.tour = resp[0].tour;      
       this.reservation.uid = resp[0].uid;
-      this.tourInfo.tourId = resp[0].tour[0].tourId      
-      this.tourInfo.price = resp[0].tour[0].price
+      this.tourInfo.tourId = resp[0].tour[0].tourId;      
+      this.tourInfo.price = resp[0].tour[0].price;
+      this.tourInfo.amount = resp[0].tour[0].amount;
 
       //this.tourInfo.tourId = resp[0].tour.tourId
       // this.tService.getToursById(resp[0].tour.tourId).then(resp=>{
