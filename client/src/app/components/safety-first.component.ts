@@ -4,6 +4,7 @@ import { SecuritiesService } from '../services/securities.service'
 import { ToursService } from '../services/tours.service';
 import { ReservationService } from '../services/reservation.service';
 import { Equipment } from '../models/equipment';
+import { Tours } from '../models/tours';
 
 declare let $: any;
 
@@ -22,6 +23,7 @@ export class SafetyFirstComponent {
     price = [];
     equipment: Equipment[] = [];
     singleEquipment: Equipment = {} as Equipment;
+    resTour: Tours = new Tours;
 
     constructor(private pser: PortfoliosService,
         private temp: SecuritiesService,
@@ -94,7 +96,7 @@ export class SafetyFirstComponent {
         //onsole.log(this.amt, this.price);
         console.log(this.equipment);
         let temp2 = {
-            "tour": '',
+            "tour": this.resTour,
             "equipment": [],
             "priceTotal": "",
             "uid": ""
