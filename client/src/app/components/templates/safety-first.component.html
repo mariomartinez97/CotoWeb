@@ -34,7 +34,8 @@
                     <hr/>
                         <tr>
                           <th id="total" colspan="3"><b>Total :</b>
-                              <br/><button *ngIf="isTotal > 0" (click)="addToTour()" class="btn btn-success">Add to Tour</button>
+                              <br/><button *ngIf="isTotal <= 0" disabled class="btn btn-success">Add to Tour</button>
+                              <button *ngIf="isTotal > 0" (click)="addToTour()" class="btn btn-success">Add to Tour</button>
                           </th>
                           <td style="font-size: 25px" id="area_total">
                           </td>
