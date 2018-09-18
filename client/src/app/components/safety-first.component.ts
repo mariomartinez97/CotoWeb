@@ -70,6 +70,8 @@ export class SafetyFirstComponent {
       
         
         if (this.equipment.length) {
+            console.log("Length:", this.equipment.length);
+            
             for (let i = 0; i < this.equipment.length; i++) {
                 if (this.equipment[i].name == n) {
                     this.equipment[i].amount = a;
