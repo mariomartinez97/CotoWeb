@@ -15,10 +15,10 @@
                       <input style="width: 200px" id="tour_date" type="date">
                       <br/>
                       <br/>
-                      <input style="width: 200px" type="number" min="1" value="1">
+                      <input #amountValue style="width: 200px" type="number" min="1" value="1">
                       <br/>
                       <br/>
-                      <button (click)="addToCart(2)">Add To Cart</button>
+                      <button (click)="addToCart(amountValue.value)">Add To Cart</button>
                   </div>
             </div>
         </div>

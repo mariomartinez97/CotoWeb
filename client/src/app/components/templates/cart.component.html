@@ -7,6 +7,7 @@
             <th>ITEMS</th>
             <th>AMOUNT</th>
             <th>PRICE</th>
+            <th>TOTAL</th>
           </tr>          
         </thead>
         <tbody>
@@ -21,6 +22,9 @@
               <td>
                 ${{tourInfo.price}}
               </td>
+              <td>
+
+              </td>
             </tr>            
             <tr *ngFor='let eq of reservation.equipment; let num = index;'>
               <td style="padding-top: 10px; padding-bottom: 10px">
@@ -32,16 +36,35 @@
               <td>
                 ${{eq.price}}
               </td>
+              <td>
+                
+              </td>
             </tr>
           <!-- </td> -->
+          <tr >
+            <td style="padding-top: 10px; padding-bottom: 10px">
+
+            </td>
+            <td>
+              
+            </td>
+            <td>
+              
+            </td>
+            <td>
+                ${{reservation.priceTotal}}
+            </td>
+          </tr>
+          <!-- -->
           <tr>
             <td>              
             </td>
             <td>
-              TOTAL: {{reservation.priceTotal}}              
+          
             </td>
+            <td></td>      
             <td>
-            <button (click)="toggleMenu()">Proceed to checkout</button>
+                <button (click)="toggleMenu()">Proceed to checkout</button>
             </td>            
           </tr>                                
         </tbody>
