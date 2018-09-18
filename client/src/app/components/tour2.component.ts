@@ -21,7 +21,6 @@ export class Tour2Component {
   resTour: Tours = new Tours;
   
   constructor(
-    private securitiesService: SecuritiesService,
     private router: Router,
     private auth: AuthService,
     private portfolioService: PortfoliosService,
