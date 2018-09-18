@@ -41,14 +41,6 @@ export class Tour1Component {
   ) { }
 
   addToCart(tourAmount: HTMLInputElement){
-    // console.log(tourID);
-
-    // // push selected tour to reservation to retrieve it on cart screen
-    // // get the actual reservation
-    // //console.log(tourID);
-    // console.log(tourID.value);
-    // console.log("middle");
-    // console.log(tourID.toString());
 
     let temp2 = {      
       "tour": this.resTour,
@@ -56,38 +48,23 @@ export class Tour1Component {
       "priceTotal": "",
       "uid": ""
   }
-    // this.res.getReservation().then(resp=> console.log(resp[0].equipment));
-    // console.log('bef')
+
   this.res.getReservation().then(resp=> {
-    console.log(resp);
     if(resp[0] != null){
     temp2.equipment = resp[0].equipment;   
     temp2.priceTotal = resp[0].priceTotal;
     temp2.tour = resp[0].tour;
     temp2.uid = resp[0].uid; 
-    //temp2._id = resp[0]._id;
-    console.log("pushing");
-    //this.reservation.push({_id: resp[0]._id, tour: resp[0].tour, equipment: resp[0].equipment, uid: resp[0].uid,} as Reservation);
-    //console.log(this.reservation[0])
-    //this.reservation[0].tour[0].amount = tourAmount;
     temp2.tour.amount = parseInt(tourAmount.toString(),10) 
-    //this.reservation[0].tour[0].tourId = 1
     temp2.tour.tourId = "1";
-    console.log(temp2);
     temp2.tour.price = '25';   
-    console.log("pushed");
-    // this.reservation.id = temp2.id;
-    this.res.deleteReservation(resp[0]._id).then(respDel=>{
-      
-      //temp2.tour.tourId = tourID.toString();  
+    this.res.deleteReservation(resp[0]._id).then(respDel=>{      
       this.res.createReservation(temp2);
-    });
-    
-  
+    });    
     }
     else{
       temp2.tour.tourId = "1";
-      temp2.tour.amount = 3; 
+      temp2.tour.amount = parseInt(tourAmount.toString(),10); 
       temp2.tour.price = '25';   
       console.log(temp2);  
       this.res.createReservation(temp2);
