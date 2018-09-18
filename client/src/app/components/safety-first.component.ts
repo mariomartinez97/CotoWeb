@@ -75,12 +75,12 @@ export class SafetyFirstComponent {
                     this.equipment[i].amount = a;
                 } else {
                     // nothing
-                    this.equipment.push({ name: n, amount: a } as Equipment);
+                    this.equipment.push({ name: n, amount: a, price: this.isTotal.toString()} as Equipment);
                 }
 
             }
         } else {
-            this.equipment.push({ name: n, amount: a } as Equipment);
+            this.equipment.push({ name: n, amount: a, price: this.isTotal.toString()} as Equipment);
 
         }
     }
@@ -111,6 +111,8 @@ export class SafetyFirstComponent {
             temp2.equipment = this.equipment;
             this.reservationService.deleteReservation(resp[0]._id).then(respDel=>{
                 //console.log('respDel' + respDel); 
+                // console.log("Temp2",temp2);
+                
                 this.reservationService.createReservation(temp2);
               });
           });
