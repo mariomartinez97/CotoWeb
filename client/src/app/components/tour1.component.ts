@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { PortfoliosService } from '../services/portfolios.service';
 import { SecuritiesService } from '../services/securities.service'
 import { ReservationService } from '../services/reservation.service'
-import { AuthService } from '../services/auth.service'
+import { AuthService } from '../services/auth.service';
 import { SecurityFilterPipe } from '../pipes/security-filter.pipe';
 import { SecurityData } from '../models/security-data';
 import { ToursService} from '../services/tours.service'
@@ -20,15 +20,9 @@ import { Tours } from '../models/tours';
 
 export class Tour1Component {
 
-  securities: SecurityData[];
-  portfolio: SecurityData[] = [];
-  loading: boolean = false;
-  selected: boolean = false;
-  load: boolean = true;
-  query: string;
+
+
   Features: any;
-  reservation: Reservation[] = [];
-  Tour1; Tour2; Tour3; Tour1Price; Tour2Price; Tour3Price;
   resTour: Tours = new Tours;
 
   constructor(
