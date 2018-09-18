@@ -18,7 +18,7 @@ declare let paypal: any;
 
 export class CartComponent {
 
-  reservation: Reservation = new Reservation;
+  //reservation: Reservation = new Reservation;
   tourInfo: Tours = new Tours;
   addScript: boolean = false;
   paypalLoad: boolean = true;
@@ -26,7 +26,15 @@ export class CartComponent {
   checkInfo: boolean = false;
   checkOut: boolean = false;
   temp: boolean = false;  
-  debug: Equipment[] = []
+  debug: Equipment[] = [];
+  resTour: Tours = new Tours;
+
+  reservation = {      
+    "tour": this.resTour,
+    "equipment": [],
+    "priceTotal": "",
+    "uid": ""
+  }
 
 
 
@@ -60,19 +68,19 @@ export class CartComponent {
   }
 
   getReservations() {
-    
+
     this.rService.getReservation().then(resp=>{
       console.log(resp)
       console.log('resp log');
       
-      this.reservation._id= resp[0]._id;
+     // this.reservation._id= resp[0]._id;
       this.reservation.equipment= resp[0].equipment;    
       this.reservation.priceTotal = resp[0].priceTotal;
       this.reservation.tour = resp[0].tour;      
       this.reservation.uid = resp[0].uid;
-      this.tourInfo.tourId = resp[0].tour[0].tourId;      
-      this.tourInfo.price = resp[0].tour[0].price;
-      this.tourInfo.amount = resp[0].tour[0].amount;
+      this.tourInfo.tourId = this.reservation.tour.tourId;
+      this.tourInfo.price = this.reservation.tour.price;
+      this.tourInfo.amount = this.reservation.tour.amount;
 
       //this.tourInfo.tourId = resp[0].tour.tourId
       // this.tService.getToursById(resp[0].tour.tourId).then(resp=>{
@@ -80,7 +88,9 @@ export class CartComponent {
       //   this.tourInfo.tourId = resp[0].tourId;
       //   this.tourInfo.price = resp[0].price;
       // });
-    });       
+   
+    });   
+      
   }
 
 callRender(){
