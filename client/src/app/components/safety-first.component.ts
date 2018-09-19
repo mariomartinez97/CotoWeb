@@ -64,6 +64,8 @@ export class SafetyFirstComponent {
         
         document.getElementById('area_total').innerText = '$'+total;
         this.isTotal = total;
+        console.log(this.isTotal);
+        
 
         this.singleEquipment.name = n;
         // console.log(this.singleEquipment);
@@ -74,21 +76,26 @@ export class SafetyFirstComponent {
             // this.equipment.forEach(e => {
             //     this.equipment.push({name:n, amount: a, price: this.isTotal.toString() } as Equipment )
             // });
+            if(this.equipment[0].name == n) {
+                this.equipment[0].amount = a;
+                this.equipment[0].price = this.isTotal.toString();
+                this.equipment.push({ name: n, amount: a, price: this.isTotal.toString()} as Equipment);
+            }
             for (let i = 0; i < this.Equipment.length; i++) {
                 if(this.equipment[i] != null) {
-                    if (this.equipment[i].name == n) {
-                        this.equipment[i].amount = a;
-                        this.equipment[i].price = this.isTotal.toString();
-                    } else {
-                        // nothing
-                        console.log("Here", this.equipment[i].name);
-                        console.log(n);
-                        if(i == this.Equipment.length) {
+                //     if (this.equipment[i].name == n) {
+                //         this.equipment[i].amount = a;
+                //         this.equipment[i].price = this.isTotal.toString();
+                //     } else {
+                //         // nothing
+                //         console.log("Here", this.equipment[i].name);
+                //         console.log(n);
+                //         if(i == this.Equipment.length) {
                         
-                        this.equipment.push({ name: n, amount: a, price: this.isTotal.toString()} as Equipment);
-                    }
-                    i++;
-                    }
+                //         this.equipment.push({ name: n, amount: a, price: this.isTotal.toString()} as Equipment);
+                //     }
+                //    break;
+                //     }
                 } else {
                     //this.equipment.push({ name: n, amount: a, price: this.isTotal.toString()} as Equipment);
                 }
