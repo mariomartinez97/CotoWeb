@@ -24,6 +24,7 @@ export class SafetyFirstComponent {
     equipment: Equipment[] = [];
     singleEquipment: Equipment = {} as Equipment;
     resTour: Tours = new Tours;
+    test:number;
 
     constructor(private pser: PortfoliosService,
         private temp: SecuritiesService,
@@ -74,23 +75,21 @@ export class SafetyFirstComponent {
             // this.equipment.forEach(e => {
             //     this.equipment.push({name:n, amount: a, price: this.isTotal.toString() } as Equipment )
             // });
-            for (let i = 0; i < this.Equipment.length; i++) {
+            for (let i = 0; i < this.Equipment.length; i++) {                
                 if(this.equipment[i] != null) {
+                    console.log(this.equipment[i].name, "<-")
                     if (this.equipment[i].name == n) {
+                        
                         this.equipment[i].amount = a;
                         this.equipment[i].price = this.isTotal.toString();
+
                     } else {
-                        // nothing
-                        console.log("Here", this.equipment[i].name);
-                        console.log(n);
-                        if(i == this.Equipment.length) {
-                        
+                        // nothing                       
+
+                        if(i+1 == this.equipment.length) {
                         this.equipment.push({ name: n, amount: a, price: this.isTotal.toString()} as Equipment);
                     }
-                    i++;
                     }
-                } else {
-                    //this.equipment.push({ name: n, amount: a, price: this.isTotal.toString()} as Equipment);
                 }
             }
         } else {
