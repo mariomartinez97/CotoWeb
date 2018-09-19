@@ -67,24 +67,41 @@ export class SafetyFirstComponent {
 
         this.singleEquipment.name = n;
         // console.log(this.singleEquipment);
-      
         
+
         if (this.equipment.length) {
             console.log("Length:", this.equipment.length);
-            
-            for (let i = 0; i < this.equipment.length; i++) {
-                if (this.equipment[i].name == n) {
-                    this.equipment[i].amount = a;
+            // this.equipment.forEach(e => {
+            //     this.equipment.push({name:n, amount: a, price: this.isTotal.toString() } as Equipment )
+            // });
+            for (let i = 0; i < this.Equipment.length; i++) {
+                if(this.equipment[i] != null) {
+                    if (this.equipment[i].name == n) {
+                        this.equipment[i].amount = a;
+                        this.equipment[i].price = this.isTotal.toString();
+                    } else {
+                        // nothing
+                        console.log("Here", this.equipment[i].name);
+                        console.log(n);
+                        if(i == this.Equipment.length) {
+                        
+                        this.equipment.push({ name: n, amount: a, price: this.isTotal.toString()} as Equipment);
+                    }
+                    i++;
+                    }
                 } else {
-                    // nothing
-                    this.equipment.push({ name: n, amount: a, price: this.isTotal.toString()} as Equipment);
+                    //this.equipment.push({ name: n, amount: a, price: this.isTotal.toString()} as Equipment);
                 }
-
             }
         } else {
+            console.log("HERE");
+            // 1
             this.equipment.push({ name: n, amount: a, price: this.isTotal.toString()} as Equipment);
 
         }
+
+        console.log(this.equipment);
+        
     }
 
     grandTotal(amt, price) {
