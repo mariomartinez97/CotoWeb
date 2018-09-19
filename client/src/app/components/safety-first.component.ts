@@ -24,6 +24,7 @@ export class SafetyFirstComponent {
     equipment: Equipment[] = [];
     singleEquipment: Equipment = {} as Equipment;
     resTour: Tours = new Tours;
+    test:number;
 
     constructor(private pser: PortfoliosService,
         private temp: SecuritiesService,
@@ -41,7 +42,7 @@ export class SafetyFirstComponent {
             
     }
 
-    sendGrandTotal($event, n, a) {
+    sendGrandTotal($event, n, a, t) {
         console.log("TEST")
         // var summ = Number($("#total[0]").text()) + Number($("#total[1]").text());
         //     console.log(summ);
@@ -64,8 +65,6 @@ export class SafetyFirstComponent {
         
         document.getElementById('area_total').innerText = '$'+total;
         this.isTotal = total;
-        console.log(this.isTotal);
-        
 
         this.singleEquipment.name = n;
         // console.log(this.singleEquipment);
@@ -76,34 +75,27 @@ export class SafetyFirstComponent {
             // this.equipment.forEach(e => {
             //     this.equipment.push({name:n, amount: a, price: this.isTotal.toString() } as Equipment )
             // });
-            if(this.equipment[0].name == n) {
-                this.equipment[0].amount = a;
-                this.equipment[0].price = this.isTotal.toString();
-                this.equipment.push({ name: n, amount: a, price: this.isTotal.toString()} as Equipment);
-            }
-            for (let i = 0; i < this.Equipment.length; i++) {
+            for (let i = 0; i < this.Equipment.length; i++) {                
                 if(this.equipment[i] != null) {
-                //     if (this.equipment[i].name == n) {
-                //         this.equipment[i].amount = a;
-                //         this.equipment[i].price = this.isTotal.toString();
-                //     } else {
-                //         // nothing
-                //         console.log("Here", this.equipment[i].name);
-                //         console.log(n);
-                //         if(i == this.Equipment.length) {
+                    console.log(this.equipment[i].name, "<-")
+                    if (this.equipment[i].name == n) {
                         
-                //         this.equipment.push({ name: n, amount: a, price: this.isTotal.toString()} as Equipment);
-                //     }
-                //    break;
-                //     }
-                } else {
-                    //this.equipment.push({ name: n, amount: a, price: this.isTotal.toString()} as Equipment);
+                        this.equipment[i].amount = a;
+                        this.equipment[i].price = t;
+
+                    } else {
+                        // nothing                       
+
+                        if(i+1 == this.equipment.length) {
+                        this.equipment.push({ name: n, amount: a, price: t} as Equipment);
+                    }
+                    }
                 }
             }
         } else {
             console.log("HERE");
             // 1
-            this.equipment.push({ name: n, amount: a, price: this.isTotal.toString()} as Equipment);
+            this.equipment.push({ name: n, amount: a, price: t} as Equipment);
 
         }
 

@@ -28,7 +28,7 @@
                 </thead>
                 <tbody *ngFor='let e of Equipment; let num = index;'>
                     <td><h5>{{e.name}}</h5> <p>{{e.description}}</p></td>
-                    <td><input (change)="sendGrandTotal($event, e.name, e.amount)" style="width: 3em;" id="number" type="number" min="0" value="{{e.amount}}" [(ngModel)]="e.amount"></td>
+                    <td><input (change)="sendGrandTotal($event, e.name, e.amount, (e.amount * e.price))" style="width: 3em;" id="number" type="number" min="0" value="{{e.amount}}" [(ngModel)]="e.amount"></td>
                     <td>${{e.price}}</td>
                     <td>${{(e.amount * e.price)}}</td>
                     <!-- <td><button (click)="grandTotal(e.amount, e.price)">+</button></td> -->
