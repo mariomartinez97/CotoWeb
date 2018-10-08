@@ -28,14 +28,14 @@
                 </thead>
                 <tbody *ngFor='let e of Equipment; let num = index;'>
                     <td><h5>{{e.name}}</h5> <p>{{e.description}}</p></td>
-                    <td><input (change)="sendGrandTotal($event, e.name, e.amount, (e.amount * e.price))" style="width: 3em;" id="number" type="number" min="0" value="{{e.amount}}" [(ngModel)]="e.amount"></td>
+                    <td><input (change)="sendGrandTotal($event, e.name, e.amount, (e.amount * e.price))" style="width: 3em;" id="number" type="number" min="0" value="{{e.amount}}" [(ngModel)]="e.amount" oninput="validity.valid||(value='');"></td>
                     <td>${{e.price}}</td>
                     <td>${{(e.amount * e.price)}}</td>
                     <!-- <td><button (click)="grandTotal(e.amount, e.price)">+</button></td> -->
                     <!-- <td id="total">{{(e.amount * e.price)}}</td> -->
                 </tbody>
                 <tfoot>
-                    <hr/>
+                    <!-- <hr/> -->
                         <tr>
                           <th id="total" colspan="3"><b>Total :</b>
                               <br/><button *ngIf="isTotal <= 0" disabled class="btn btn-success">Add to Tour</button>

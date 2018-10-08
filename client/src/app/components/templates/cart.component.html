@@ -1,76 +1,100 @@
-<div id="cart-chart" *ngIf="cartChart" >
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-      <table class="table table-hover" width="100%">
-        <thead class="text-success">
-          <tr>
-            <th>ITEMS</th>
-            <th>AMOUNT</th>
-            <th>PRICE</th>
-            <th>TOTAL</th>
-          </tr>          
-        </thead>
-        <tbody>
-          <!-- <td> -->
-            <tr >
-              <td style="padding-top: 10px; padding-bottom: 10px">
-                Tour {{tourInfo.tourId}}
-              </td>
-              <td>
-                {{tourInfo.amount}}
-              </td>
-              <td>
-                ${{tourInfo.price}}
-              </td>
-              <td>
-
-              </td>
-            </tr>            
-            <tr *ngFor='let eq of reservation.equipment; let num = index;'>
-              <td style="padding-top: 10px; padding-bottom: 10px">
-                {{eq.name}}
-              </td>
-              <td>
-                {{eq.amount}}
-              </td>
-              <td>
-                ${{eq.price}}
-              </td>
-              <td>
-                
-              </td>
-            </tr>
-          <!-- </td> -->
-          <tr >
-            <td style="padding-top: 10px; padding-bottom: 10px">
-
-            </td>
-            <td>
+      <div class="col-md-4 seventy">
+          <div id="cart-chart" *ngIf="cartChart" >
+              <div class="container-fluid">
+                  <div class="row">
+                    <table class="table table-hover" width="100%">
+                      <thead class="text-success">
+                        <tr>
+                          <th>ITEMS</th>
+                          <th>AMOUNT</th>
+                          <th>PRICE</th>
+                          <th>TOTAL</th>
+                        </tr>          
+                      </thead>
+                      <tbody>
+                        <!-- <td> -->
+                          <tr >
+                            <td style="padding-top: 10px; padding-bottom: 10px">
+                              Tour {{tourInfo.tourId}}
+                            </td>
+                            <td>
+                              {{tourInfo.amount}}
+                            </td>
+                            <td>
+                              ${{tourInfo.price}}
+                            </td>
+                            <td>
               
-            </td>
-            <td>
+                            </td>
+                          </tr>            
+                          <tr *ngFor='let eq of reservation.equipment; let num = index;'>
+                            <td style="padding-top: 10px; padding-bottom: 10px">
+                              {{eq.name}}
+                            </td>
+                            <td>
+                              {{eq.amount}}
+                            </td>
+                            <td>
+                              ${{eq.price}}
+                            </td>
+                            <td>
+                              
+                            </td>
+                          </tr>
+                        <!-- </td> -->
+                        <tr >
+                          <td style="padding-top: 10px; padding-bottom: 10px">
               
-            </td>
-            <td>
-                ${{reservation.priceTotal}}
-            </td>
-          </tr>
-          <!-- -->
-          <tr>
-            <td>              
-            </td>
-            <td>
-          
-            </td>
-            <td></td>      
-            <td>
-                <button (click)="toggleMenu()">Proceed to checkout</button>
-            </td>            
-          </tr>                                
-        </tbody>
-      </table>
+                          </td>
+                          <td>
+                            
+                          </td>
+                          <td>
+                            
+                          </td>
+                          <td>
+                              ${{reservation.priceTotal}}
+                          </td>
+                        </tr>
+                        <!-- -->
+                        <tr>
+                          <td>              
+                          </td>
+                          <td>
+                        
+                          </td>
+                          <td></td>      
+                          <td>
+                              <button (click)="toggleMenu()">Proceed to checkout</button>
+                          </td>            
+                        </tr>                                
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+        </div>
+      <div class="col-md-8 thirty">
+          <table class="table table-hover" width="100%">
+                <thead class="text-success">
+                    <tr>
+                      <th>PH</th>
+                      <th>PH</th>
+                      <th>PH</th>
+                      <th>PH</th>
+                    </tr>          
+                  </thead>
+                  <tbody>
+                      <tr><td>PH</td>
+                      <td>PH</td>
+                      <td>PH</td>
+                      <td>PH</td></tr>
+                  </tbody>
+            </table>
+        </div>
     </div>
-  </div>
 </div>
 
 <div id="cart-info" *ngIf="checkInfo">
