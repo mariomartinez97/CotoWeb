@@ -117,15 +117,19 @@ export class SafetyFirstComponent {
             "tour": this.resTour,
             "equipment": [],
             "priceTotal": "",
-            "uid": ""
+            "uid": "",
+            "totalTour":"",
+            "totalEquip":''
         }
 
         this.reservationService.getReservation().then(resp=> {
             console.log('id is:'+ resp[0]._id);
-            temp2.equipment = resp[0].equipment;   
-            temp2.priceTotal = resp[0].priceTotal;
-            temp2.tour = resp[0].tour;
             temp2.uid = resp[0].uid; 
+            temp2.tour = resp[0].tour;
+            temp2.equipment = resp[0].equipment;  
+            temp2.totalTour = resp[0].totalTour;
+            temp2.totalEquip = resp[0].totalEquip; 
+            temp2.priceTotal = resp[0].priceTotal;
             temp2.equipment = this.equipment;
             this.reservationService.deleteReservation(resp[0]._id).then(respDel=>{
                 //console.log('respDel' + respDel); 
