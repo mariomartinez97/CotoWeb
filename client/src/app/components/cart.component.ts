@@ -70,6 +70,9 @@ export class CartComponent {
   getReservations() {
 
     this.rService.getReservation().then(resp=>{
+      if(resp[0] == undefined) {
+        return;
+      } else {
       console.log(resp)
       console.log('resp log');
       
@@ -88,7 +91,7 @@ export class CartComponent {
       //   this.tourInfo.tourId = resp[0].tourId;
       //   this.tourInfo.price = resp[0].price;
       // });
-   
+      }
     });   
       
   }
