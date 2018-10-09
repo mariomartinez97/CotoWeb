@@ -26,7 +26,7 @@
                               ${{tourInfo.price}}
                             </td>
                             <td>
-              
+                              ${{(tourInfo.amount * tourInfo.price)}}
                             </td>
                           </tr>            
                           <tr *ngFor='let eq of reservation.equipment; let num = index;'>
@@ -40,7 +40,7 @@
                               ${{eq.price}}
                             </td>
                             <td>
-                              
+                              ${{(eq.amount * eq.price)}}
                             </td>
                           </tr>
                         <!-- </td> -->
