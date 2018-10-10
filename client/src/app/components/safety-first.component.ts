@@ -18,7 +18,7 @@ declare let $: any;
 export class SafetyFirstComponent {
     Equipment: any;
     totalEquipment: number = 0;
-    isTotal: Number = 0;
+    isTotal: number = 0;
     amt = [];
     price = [];
     equipment: Equipment[] = [];
@@ -39,6 +39,10 @@ export class SafetyFirstComponent {
                 this.Equipment = res;
             });
 
+        this.reservationService.getReservation().then(res => {
+            console.log(res[0].equipment[0].amount);
+            //this.Equipment = res[0].equipment;
+        })
             
     }
 
@@ -116,20 +120,23 @@ export class SafetyFirstComponent {
         let temp2 = {
             "tour": this.resTour,
             "equipment": [],
-            "priceTotal": "",
+            "priceTotal": 0,
             "uid": "",
-            "totalTour":"",
-            "totalEquip":''
+            "totalTour": 0,
+            "totalEquip": 0
         }
 
         this.reservationService.getReservation().then(resp=> {
             console.log('id is:'+ resp[0]._id);
             temp2.uid = resp[0].uid; 
             temp2.tour = resp[0].tour;
-            temp2.equipment = resp[0].equipment;  
+            temp2.equipment = resp[0].equipment;
+            
+            console.log(this.isTotal);
+            
             temp2.totalTour = resp[0].totalTour;
-            temp2.totalEquip = resp[0].totalEquip; 
-            temp2.priceTotal = resp[0].priceTotal;
+            temp2.totalEquip = this.isTotal; 
+            temp2.priceTotal = temp2.totalTour + temp2.totalEquip;
             temp2.equipment = this.equipment;
             this.reservationService.deleteReservation(resp[0]._id).then(respDel=>{
                 //console.log('respDel' + respDel); 

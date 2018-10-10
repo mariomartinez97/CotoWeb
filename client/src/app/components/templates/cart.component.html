@@ -37,10 +37,10 @@
                               {{eq.amount}}
                             </td>
                             <td>
-                              ${{eq.price}}
+                              ${{(eq.price/eq.amount)}}
                             </td>
                             <td>
-                              ${{(eq.amount * eq.price)}}
+                              ${{((eq.price/eq.amount)*eq.amount)}}
                             </td>
                           </tr>
                         <!-- </td> -->
