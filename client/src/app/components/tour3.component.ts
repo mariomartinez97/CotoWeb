@@ -7,6 +7,7 @@ import { Tours } from '../models/tours';
 import { AuthService } from '../services/auth.service';
 import { ToursService} from '../services/tours.service'
 
+declare let $: any;
 
 @Component({
   selector: 'coto-tour3',
@@ -15,7 +16,7 @@ import { ToursService} from '../services/tours.service'
 
 })
 
-export class Tour3Component {
+export class Tour3Component implements OnInit {
 
   Features: any;
   resTour: Tours = new Tours;
@@ -27,6 +28,14 @@ export class Tour3Component {
     private toursService: ToursService,
     private res: ReservationService
   ) { }
+
+  ngOnInit() {
+    // let dt = [6, 21];
+    $('#datepicker').datepicker({
+      // daysOfWeekHighlighted: "1,2",
+      datesDisabled: ['10/06/2018', '10/21/2018']
+    });
+  }
 
   addToCart(tourAmount: HTMLInputElement){
 

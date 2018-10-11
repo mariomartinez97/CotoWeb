@@ -11,6 +11,8 @@ import { Reservation } from '../models/reservation';
 import { TouchSequence } from '../../../node_modules/@types/selenium-webdriver';
 import { Tours } from '../models/tours';
 
+declare let $: any;
+
 @Component({
   selector: 'coto-tour1',
   templateUrl: './templates/tour1.component.html',
@@ -18,7 +20,7 @@ import { Tours } from '../models/tours';
 
 })
 
-export class Tour1Component {
+export class Tour1Component implements OnInit {
 
 
 
@@ -33,56 +35,63 @@ export class Tour1Component {
     private toursService: ToursService,
     private res: ReservationService
   ) { }
+  
+  ngOnInit() {
+    // let dt = [6, 21];
+    $('#datepicker').datepicker({
+      // daysOfWeekHighlighted: "1,2",
+      datesDisabled: ['10/06/2018', '10/21/2018']
+    });
+  }
 
-  addToCart(tourAmount: HTMLInputElement){
-
-    let temp2 = {      
+  addToCart(tourAmount: HTMLInputElement, tourDate: Date) {
+    let temp2 = {
       "tour": this.resTour,
       "equipment": [],
       "priceTotal": 0,
       "uid": "",
       "totalTour": 0,
-      "totalEquip":0
-  }
+      "totalEquip": 0
+    }
 
-  this.res.getReservation().then(resp=> {
-    if(resp[0] != null){
-    temp2.uid = resp[0].uid; 
-    temp2.equipment = resp[0].equipment;   
-    temp2.tour = resp[0].tour;
-    temp2.totalTour = resp[0].totalTour;
-    temp2.totalEquip = resp[0].totalEquip;
-    temp2.priceTotal = parseInt(resp[0].priceTotal);
-    
-    temp2.tour.tourId = "1";
-    this.toursService.getToursById(temp2.tour.tourId).then(resp=>{
-      temp2.tour.price = resp[0].price  
-      temp2.totalTour = parseInt(temp2.tour.price.toString(),10)
-      temp2.totalTour = temp2.totalTour * temp2.tour.amount;
-      temp2.priceTotal = temp2.totalEquip + temp2.totalTour;  
+    this.res.getReservation().then(resp => {
+      if (resp[0] != null) {
+        temp2.uid = resp[0].uid;
+        temp2.equipment = resp[0].equipment;
+        temp2.tour = resp[0].tour;
+        temp2.totalTour = resp[0].totalTour;
+        temp2.totalEquip = resp[0].totalEquip;
+        temp2.priceTotal = parseInt(resp[0].priceTotal);
+
+        temp2.tour.tourId = "1";
+        this.toursService.getToursById(temp2.tour.tourId).then(resp => {
+          temp2.tour.price = resp[0].price
+          temp2.totalTour = parseInt(temp2.tour.price.toString(), 10)
+          temp2.totalTour = temp2.totalTour * temp2.tour.amount;
+          temp2.priceTotal = temp2.totalEquip + temp2.totalTour;
+        });
+        temp2.tour.amount = parseInt(tourAmount.toString(), 10)
+
+
+        this.res.deleteReservation(resp[0]._id).then(respDel => {
+          this.res.createReservation(temp2);
+        });
+      }
+      else {
+        temp2.tour.tourId = "1";
+        this.toursService.getToursById(temp2.tour.tourId).then(resp => {
+          temp2.tour.price = resp[0].price
+          temp2.totalTour = parseInt(temp2.tour.price.toString(), 10)
+          temp2.totalTour = temp2.totalTour * temp2.tour.amount;
+          temp2.priceTotal = temp2.totalEquip + temp2.totalTour;
+          temp2.tour.amount = parseInt(tourAmount.toString(), 10);
+
+          console.log(temp2);
+          this.res.createReservation(temp2);
+        });
+
+      }
     });
-    temp2.tour.amount = parseInt(tourAmount.toString(),10) 
-    
-
-    this.res.deleteReservation(resp[0]._id).then(respDel=>{      
-      this.res.createReservation(temp2);
-    });    
-    }
-    else{
-      temp2.tour.tourId = "1";
-      this.toursService.getToursById(temp2.tour.tourId).then(resp=>{
-        temp2.tour.price = resp[0].price  
-        temp2.totalTour = parseInt(temp2.tour.price.toString(),10)
-      temp2.totalTour = temp2.totalTour * temp2.tour.amount;
-        temp2.priceTotal = temp2.totalEquip + temp2.totalTour;
-        temp2.tour.amount = parseInt(tourAmount.toString(),10); 
-        
-        console.log(temp2);  
-        this.res.createReservation(temp2);
-      });
-
-    }
-  });  
-}
+  }
 
  }
