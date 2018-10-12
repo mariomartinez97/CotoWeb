@@ -16,10 +16,10 @@
                       <input style="width: 200px" id="datepicker" #dateValue placeholder="mm/dd/yyyy" type="text" data-provide="datepicker">
                       <br/>
                       <br/>
-                      <input #amountValue style="width: 200px" type="number" min="1" value="1" oninput="validity.valid||(value='');">
+                      <input #amountValue style="width: 200px" type="number" min="1" value="1" oninput="validity.valid||(value='1');">
                       <br/>
                       <br/>
-                      <button (click)="addToCart(amountValue.value)">Add To Cart</button>
+                      <button (click)="addToCart(amountValue.value, dateValue.value)">Add To Cart</button>
                   </div>
             </div>
         </div>
