@@ -37,7 +37,7 @@ export class Tour2Component implements OnInit{
     });
   }
 
-addToCart(tourAmount: HTMLInputElement){
+addToCart(tourAmount: HTMLInputElement, tourDate: Date){
 
     let temp2 = {      
       "tour": this.resTour,
@@ -45,7 +45,8 @@ addToCart(tourAmount: HTMLInputElement){
       "priceTotal": 0,
       "uid": "",
       "totalTour":0,
-      "totalEquip":0
+      "totalEquip":0,
+      "date": tourDate
   }
 
   this.res.getReservation().then(resp=> {
@@ -56,7 +57,7 @@ addToCart(tourAmount: HTMLInputElement){
       temp2.totalTour = resp[0].totalTour;
       temp2.totalEquip = resp[0].totalEquip;
       temp2.priceTotal = parseInt(resp[0].priceTotal);
-      
+      temp2.date = resp[0].date;
       
       temp2.tour.tourId = "2";
       this.toursService.getToursById(temp2.tour.tourId).then(resp=>{
@@ -66,7 +67,7 @@ addToCart(tourAmount: HTMLInputElement){
         temp2.priceTotal = temp2.totalEquip + temp2.totalTour; 
       });
       temp2.tour.amount = parseInt(tourAmount.toString(),10) 
-      
+      temp2.date = tourDate;      
   
       this.res.deleteReservation(resp[0]._id).then(respDel=>{      
         this.res.createReservation(temp2);
@@ -80,7 +81,7 @@ addToCart(tourAmount: HTMLInputElement){
         temp2.totalTour = temp2.totalTour * temp2.tour.amount;
         temp2.priceTotal = temp2.totalEquip + temp2.totalTour;  
         temp2.tour.amount = parseInt(tourAmount.toString(),10); 
-        
+        temp2.date = tourDate; 
         console.log(temp2);  
         this.res.createReservation(temp2);
       });

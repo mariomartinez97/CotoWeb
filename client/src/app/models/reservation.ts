@@ -11,4 +11,5 @@ export class Reservation {
     uid: any;
     totalTour: any;
     totalEquip: any;
+    date: Date;
   }

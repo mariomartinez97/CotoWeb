@@ -37,7 +37,7 @@ export class Tour3Component implements OnInit {
     });
   }
 
-  addToCart(tourAmount: HTMLInputElement){
+  addToCart(tourAmount: HTMLInputElement, tourDate: Date){
 
     let temp2 = {      
       "tour": this.resTour,
@@ -45,7 +45,8 @@ export class Tour3Component implements OnInit {
       "priceTotal": 0,
       "uid": "",
       "totalTour": 0,
-      "totalEquip":0
+      "totalEquip":0,
+      "date": tourDate
   }
 
   this.res.getReservation().then(resp=> {
@@ -56,6 +57,7 @@ export class Tour3Component implements OnInit {
       temp2.totalTour = resp[0].totalTour;
       temp2.totalEquip = resp[0].totalEquip;
       temp2.priceTotal = parseInt(resp[0].priceTotal);
+      temp2.date = resp[0].date;
       
       temp2.tour.tourId = "3";
       this.toursService.getToursById(temp2.tour.tourId).then(resp=>{
@@ -65,7 +67,7 @@ export class Tour3Component implements OnInit {
         temp2.priceTotal = temp2.totalEquip + temp2.totalTour;  
       });
       temp2.tour.amount = parseInt(tourAmount.toString(),10) 
-      
+      temp2.date = tourDate;
   
       this.res.deleteReservation(resp[0]._id).then(respDel=>{      
         this.res.createReservation(temp2);
@@ -73,14 +75,14 @@ export class Tour3Component implements OnInit {
     }
     else{
       temp2.tour.tourId = "3";
-      this.toursService.getToursById(temp2.tour.tourId).then(resp=>{
-        temp2.tour.price = resp[0].price  
-        temp2.totalTour = parseInt(temp2.tour.price.toString(),10)
-      temp2.totalTour = temp2.totalTour * temp2.tour.amount;
+      this.toursService.getToursById(temp2.tour.tourId).then(resp => {
+        temp2.tour.price = resp[0].price
+        temp2.totalTour = parseInt(temp2.tour.price.toString(), 10)
+        temp2.totalTour = temp2.totalTour * temp2.tour.amount;
         temp2.priceTotal = temp2.totalEquip + temp2.totalTour;
-        temp2.tour.amount = parseInt(tourAmount.toString(),10); 
-        
-        console.log(temp2);  
+        temp2.tour.amount = parseInt(tourAmount.toString(), 10);
+        temp2.date = tourDate;
+        console.log(temp2);
         this.res.createReservation(temp2);
       });
     }

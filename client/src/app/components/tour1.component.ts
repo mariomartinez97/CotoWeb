@@ -51,7 +51,8 @@ export class Tour1Component implements OnInit {
       "priceTotal": 0,
       "uid": "",
       "totalTour": 0,
-      "totalEquip": 0
+      "totalEquip": 0,
+      "date": tourDate
     }
 
     this.res.getReservation().then(resp => {
@@ -62,6 +63,7 @@ export class Tour1Component implements OnInit {
         temp2.totalTour = resp[0].totalTour;
         temp2.totalEquip = resp[0].totalEquip;
         temp2.priceTotal = parseInt(resp[0].priceTotal);
+        temp2.date = resp[0].date;
 
         temp2.tour.tourId = "1";
         this.toursService.getToursById(temp2.tour.tourId).then(resp => {
@@ -71,7 +73,7 @@ export class Tour1Component implements OnInit {
           temp2.priceTotal = temp2.totalEquip + temp2.totalTour;
         });
         temp2.tour.amount = parseInt(tourAmount.toString(), 10)
-
+        temp2.date = tourDate;
 
         this.res.deleteReservation(resp[0]._id).then(respDel => {
           this.res.createReservation(temp2);
@@ -85,7 +87,7 @@ export class Tour1Component implements OnInit {
           temp2.totalTour = temp2.totalTour * temp2.tour.amount;
           temp2.priceTotal = temp2.totalEquip + temp2.totalTour;
           temp2.tour.amount = parseInt(tourAmount.toString(), 10);
-
+          temp2.date = tourDate;
           console.log(temp2);
           this.res.createReservation(temp2);
         });
