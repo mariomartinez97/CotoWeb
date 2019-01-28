@@ -24,7 +24,7 @@ export class CartComponent {
   paypalLoad: boolean = true;
   cartChart: boolean = true;
   checkInfo: boolean = false;
-  checkOut: boolean = false;
+  checkOut: boolean = true;
   temp: boolean = false;  
   debug: Equipment[] = [];
   resTour: Tours = new Tours;
@@ -65,6 +65,7 @@ export class CartComponent {
               private tService: ToursService
   ) {
     this.getReservations();
+    this.callRender();
   }
 
   getReservations() {

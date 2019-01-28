@@ -1,39 +1,304 @@
+.container{
+}
+p{
+  font-size: 16px;
+}
+.header{
+  height: 600px;
+  width: 100%;
+  padding: 30px 0 30px;
+  color: #fff;
+  text-align: center;
+}
+
+.setBackground{
+  position: absolute;
+  height: 600px;
+  width: 100%;
+  padding: 30px 0 30px;
+  left: 0;
+  top: 0;
+  margin-top: 50px;
+  background: url('../../../assets/bkground1.jpg');
+  opacity: 0.8;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+}
+
+.setColorBackground{
+  position: absolute;
+  height: 700px;
+  width: 100%;
+  left: 0;
+  background-color: #f0f0f0;
+  background-position: center center;
+  background-size: cover;
+  z-index: 0;
+}
+
+.header h1{
+  font-size: 40px;
+  font-weight: 700;
+  padding-top: 30px;
+}
+
+.header h1,
+.header p,
+.header button{
+  margin-top: 20px;
+}
+
+.header .btn{
+  border-radius: 0;
+  margin: 40px 20px;
+}
+
+@media(max-width:768px){
+  .header{
+    padding: 30px;
+    height: 750px;
+  }
+
+  .header img{
+    width: 90%;
+    height: 300px;
+    margin: 20px 0 0 20px;
+  }
+
+  .header .btn{
+    font-size: 10px;
+    margin-left: 20px;
+  }
+
+  .header h1{
+    font-size: 20px;
+  }
+
+  .header p{
+    font-size: 10px;
+  }
+
+  .services{
+    padding: 30px;
+  }
+}
+
+/* FEATURES */
+.features{
+  padding: 80px 0 80px;
+  text-align: center;
+}
+
+.features h2,
+.features h4{
+  color: #4c4c4c;
+  margin: 20px 0 20px;
+}
+
+.features h4{
+  font-size: 18px;
+}
+
+.features p {
+  color: #737373;
+  padding-bottom: 40px;
+}
+
+.features i {
+  height: 80px;
+  width: 80px;
+  font-size: 30px;
+  padding: 25px 20px;
+  border-radius: 50%;
+  background-color: #86d690;
+  color: #fff;
+}
+
+/* TECHNOLOGIES */
+.tech{
+  padding: 50px 0px 80px;
+  color: #4c4c4c;
+  text-align: center;
+  background-color: #fff;
+  background-position: center center;
+  background-size: cover;
+}
+
+.tech p{
+  padding-bottom: 20px;
+}
+
+.tech .list{
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.list li{
+  display: block;
+  padding: 5px;
+}
+
+.list h1,
+.list h4,
+.list b{
+  color: #4c4c4c;
+}
+
+.list img{
+  height: 80px;
+  width: 80px;
+}
+
+.list p{
+  font-size: 18px;
+  color: #737373;
+}
+
+.list li,
+.list span{
+  color: #737373;
+}
+
+/* TEAM */
+.team{
+  padding: 50px 0 80px;
+  text-align: center;
+}
+
+.team b,
+.team h2,
+.team h4{
+  margin: 20px 0 20px;
+  color: #4c4c4c;
+}
+
+.team p{
+  color: #737373;
+}
+
+.team img{
+  height: 150px;
+  width: 150px;
+  margin-top: 80px;
+}
+
+.team i {
+  height: 35px;
+  width: 35px;
+  padding: 5px;
+  font-size: 24px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.team a:hover i{
+  background-color: #D3D3D3;
+}
+
+/* CONTACT */
+.contact{
+  text-align: center;
+  background-color: #f0f0f0;
+  background-position: center center;
+  background-size: cover;
+}
+
+.contact p{
+  padding-bottom: 50px;
+  color: #737373;
+}
+
+.contact h2{
+  color: #4c4c4c;
+  margin: 20px 0 20px;
+}
+
+.contact .input-group{
+  margin-bottom: 25px;
+}
+
+.contact .form-control{
+  border-radius: 0 !important;
+}
+
+.contact .span{
+  border-radius: 0 !important;
+}
+
+.contact .btn{
+  border-radius: 0;
+  width: 100%;
+  font-size: 15px;
+  background-color: #00cc00;
+  color: #fff;
+}
+
+.contact .btn:hover {
+  background-color: #009933;
+  color: #fff;
+}
+
+/* FOOTER */
+.improvedFooter{
+  padding: 30px;
+}
+
+.improvedFooter .social{
+  font-size: 15px;
+  height: 25px;
+  width: 25px;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #000000;
+  margin-bottom: 12px;
+  margin-right: 5px;
+}
 .jumbotron {
-    background-color: #f4511e;
-    color: #fff;
-    padding: 100px 25px;
+  background-color: #f4511e;
+  color: #fff;
+  padding: 100px 25px;
 }
 .bg-grey {
-    background-color: #f6f6f6;
+  background-color: #f6f6f6;
 }
 .container-fluid {
-    padding: 60px 50px;
+  padding: 60px 50px;
 }
 
 .logo {
-    font-size: 200px;
+  font-size: 200px;
 }
 @media screen and (max-width: 768px) {
-    .col-sm-4 {
-        text-align: center;
-        margin: 25px 0;
-    }
+  .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+  }
 }
 .logo-small {
-    color: #86d690;
-    font-size: 50px;
+  color: #86d690;
+  font-size: 50px;
 }
 
 .logo {
-    color: #86d690;
-    font-size: 200px;
+  color: #86d690;
+  font-size: 200px;
 }
 .thumbnails {
-    text-align:center;
+  text-align:center;
 }
 
 footer .glyphicon {
-    font-size: 30px;
-    margin-bottom: 20px;
-    color: #86d690;
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #86d690;
 }

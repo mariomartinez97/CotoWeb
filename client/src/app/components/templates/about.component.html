@@ -1,106 +1,103 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-8">
-      <h2>About Project Page</h2>
-      <h4 class="animated slideInLeft">The project is for educational purpose only.</h4>
-      <p class="animated slideInLeft">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos rerum impedit quod soluta earum omnis similique animi quibusdam corporis vitae hic iusto possimus, ullam at laudantium eum et totam. Eum?.</p>
-      <button title="Contact" onclick="window.scrollTo(0, 1800)" class="btn btn-default btn-lg animated slideInLeft">Get in Touch</button>
-    </div>
-    <div class="col-sm-4">
-      <span class="fa fa-line-chart logo animated slideInRight"></span>
+<!-- Team -->
+<div class="team">
+  <div class="container">
+    <div class="row">
+      <h2>Meet Our Team</h2>
+      <p>These were the developers which participated in the entire project</p>
+      <div class="col-lg-3 col-md-3 wow fadeInLeft" data-wow-delay="2s"> <!-- Rodrigo -->
+       
+      </div>
+      <div class="col-lg-3 col-md-3 wow fadeInLeft" data-wow-delay="1.6s"><!-- Oleh -->
+        <img src="../../../assets/oleh.jpg" class="img-circle" alt="Oleh Harkusha">
+        <h4>Oleh Harkusha</h4>
+        <b>Full-Stack Developer</b>
+        <p>Developer who constantly implemented on all components and handled security data info.</p>
+        <a href="https://github.com/olehharkusha93"><i class="fa fa-github" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/oleh-harkusha-91a253144/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/oleh.harkusha"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+      </div>
+      <div class="col-lg-3 col-md-3 wow fadeInLeft" data-wow-delay="0.8s"><!-- Mario -->
+        <img src="../../../assets/mario.jpg" class="img-circle" alt="Mario Martinez">
+        <h4>Mario Martinez</h4>
+        <b>Full-Stack Developer</b>
+        <p>Developer who implemented cart functionality and handled back-end API calls.</p>
+        <a href="https://github.com/mariomartinez97"><i class="fa fa-github" aria-hidden="true"></i></a>
+        <a href="https://www.linkedin.com/in/mario-miguel-martinez-7ab431110/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+        <a href="https://www.facebook.com/mariomiguel.martinez.3"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+      </div>
+      <div class="col-lg-3 col-md-3 wow fadeInLeft" data-wow-delay="1.2s"><!-- Gabriel -->
+       
+      </div>
     </div>
   </div>
 </div>
-
-<div class="container-fluid bg-grey">
-  <div class="row">
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-usd logo animated slideInLeft"></span>
-    </div>
-    <div class="col-sm-8">
-      <h2>Our Values</h2>
-      <h4 class="animated slideInRight"><strong>MISSION:</strong> Our mission is to provide users with a place to create and keep track of their stock portfolios.</h4>
-      <p class="animated slideInRight"><strong>VISION:</strong> Our vision for the application to be used as any other financial web sites where people can check on their stocks, portfolios, and risks.</p>
-    </div>
-  </div>
-</div>
-<div class="container-fluid text-center">
-  <h2>SERVICES</h2>
-  <h4>What we offer</h4>
-  <br>
-  <div class="row">
-    <div class="col-sm-4">
-      <span class="fa fa-area-chart logo-small"></span>
-      <h4>POWER</h4>
-      <p>Powerful and visually appealing graphs</p>
-    </div>
-    <div class="col-sm-4">
-      <span class="fa fa-users logo-small"></span>
-      <h4>USERS</h4>
-      <p>Safe account based system</p>
-    </div>
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-folder-open logo-small"></span>
-      <h4>Portfolios</h4>
-      <p>Create and manage your own portfolios</p>
-    </div>
-    </div>
-</div>
-
-<div class="container-fluid text-center bg-white">
-  <h2>Portfolio</h2>
-  <h4>What we have created</h4>
-  <div class="row text-center">
-    <div class="col-sm-4">
-      <div class="thumbnail">
-        <img routerLink="/" src="../../../assets/mainpage.PNG" alt="Buffalo">
-        <p><strong>Buffalo Risk</strong></p>
-        <p>Buffalo Risk built using MEAN Stack</p>
+<!-- Technologies -->
+<div class="setColorBackground"></div>
+<div id="tech" class="tech">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2>Technologies</h2>
+        <p>The following technologies were what this application was built upon</p>
       </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="thumbnail">
-        <img src="../../../assets/graph.PNG" alt="Graph">
-        <p><strong>Graphs</strong></p>
-        <p>Powered by Chart.js</p>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="thumbnail">
-        <img src="../../../assets/portfolio.PNG" alt="Porfolio">
-        <p><strong>Portfolio</strong></p>
-        <p>Personalized stock finances</p>
-      </div>
-    </div>
-</div>
-
-<div class="container-fluid bg-grey">
-  <h2 class="text-center">CONTACT</h2>
-  <div class="row">
-    <div class="col-sm-5">
-      <p>This is a contact page with some basic contact information and a contact form.</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span> Orlando, FL</p>
-      <p><span class="glyphicon glyphicon-phone"></span> (407) 438-2387</p>
-      <p><span class="glyphicon glyphicon-envelope"></span> BuffaloRisk@buffalo.com</p>
-    </div>
-    <div class="col-sm-7">
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <input #name class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-        </div>
-        <div class="col-sm-6 form-group">
-          <input #email class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+      <div class="col-lg-3 col-md-3 wow flipInY" data-wow-delay="0.8s">
+        <div class="list">
+          <h4>Angular</h4>
+          <img src="../../../assets/angular.png" alt="Angular"><br/>
+          <b>Front-End</b>
+          <p>Typescript MVC framework</p>
+          <hr>
+          <li>Built all components</li>
+          <li>Typescript oriented</li>
+          <li>Single-page application</li>
+          <li>Model–view–controller</li>
         </div>
       </div>
-      <textarea #comment class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
-      <div class="row">
-        <div class="col-sm-12 form-group">
-          <button class="btn btn-default pull-right" (click)="email.value=''; name.value=''; comment.value=''" type="submit">Send</button>
+      <div class="col-lg-3 col-md-3 wow flipInY" data-wow-delay="1.2s">
+        <div class="list">
+          <h4>NodeJS</h4>
+          <img src="../../../assets/nodejs.png" alt="Angular"><br/>
+          <b>Back-End</b><br/>
+          <span>Execution environment for event-driven server-side</span>
+          <hr>
+          <li>Event-driven architecture</li>
+          <li>Handled Piping</li>
+          <li>Asynchronous I/O</li>
+          <li>Authentication</li>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 wow flipInY" data-wow-delay="1.6s">
+        <div class="list">
+          <h4>Express</h4>
+          <img src="../../../assets/express.png" alt="Angular"><br/>
+          <b>Framework</b>
+          <p>Back-End framework</p>
+          <hr>
+          <li>Robust set of features</li>
+          <li>HTTP utility methods</li>
+          <li>Thin and minimal layer</li>
+          <li><br/></li> <!-- Empty to make cards have same size -->
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 wow flipInY" data-wow-delay="2s">
+        <div class="list">
+          <h4>MongoDB</h4>
+          <img src="../../../assets/mongodb.png" alt="Angular"><br/>
+          <b>Database</b><br/>
+          <span>Document-oriented NoSQL database program</span>
+          <hr>
+          <li>JSON-like documents</li>
+          <li>Stored stock data</li>
+          <li>Stored user's portfolios</li>
+          <li><br/></li> <!-- Empty to make cards have same size -->
         </div>
       </div>
     </div>
   </div>
 </div>
+<!-- End of Technologies -->
+
+<!-- End of Team -->
 
 <a onclick="window.scrollTo(0, 0)" title="To Top">
   <footer class="container-fluid text-center">

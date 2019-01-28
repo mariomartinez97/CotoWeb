@@ -8,7 +8,7 @@ import { PInfo } from '../models/user';
 @Component({
   selector: 'br-about',
   templateUrl: './templates/plan-visit.component.html',
-  styleUrls: ['./styles/about.component.css']
+  styleUrls: ['./styles/plan-visit.component.css']
 
 })
 

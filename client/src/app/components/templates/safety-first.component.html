@@ -1,153 +1,71 @@
 <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-8">
-            <h2>Safety First</h2>
-            <h4 class="animated slideInLeft" style="animation-delay:0.1s;">Add equipment for your trip</h4>
-            <p class="animated slideInLeft" style="animation-delay:0.12s;">You are the most important person because we care about you, this tours offer the most secure hiking trip you will ever do. In order to accomplish that, we have prepared tour-guides, with satellite communication if any emergency occurs at any time during the trip. In addition, we offer oxygen cans that will prevent any altitude issues that may be caused because the volcano is located at more than 4000 meters above sea level. Another great product to prevent this effect are sweets because it regulates your blood pressure. Sweets we will not just have, but they will be NATIONAL sweets so you besides the trip, acquire knowledge about our most representative ones.</p>
-            <br/>
-            <p class="animated slideInLeft delay-2s" style="animation-delay:0.2s;">Another concern tourists commonly have is the level of difficulty and the possibility to get lost on the way. However, our tour-guides will hike with you all along the way and back to assure your safety. In average, the walk is about 40 minutes long.</p>
-            <br/>
-            <p class="animated slideInLeft delay-3s" style="animation-delay:0.3s;">The only thing you will be concern about is enjoying the view and the trip.</p>
-          </div>
-          <div class="col-sm-4">
-            <span class="fa fa-line-chart logo animated slideInRight"></span>
-          </div>
-        </div>
-      </div>
-
-    <div class="container-fluid">
-        <div class="row">
+  <div class="row">
+      <!-- <div class="col-sm-8"> -->
+        <div>
+          <h2>Safety First</h2>
+          <h4 class="animated slideInLeft" style="animation-delay:0.1s;">Add equipment for your trip</h4>
+          <p class="animated slideInLeft" style="animation-delay:0.12s;">You are the most important person because we care about you, this tours offer the most secure hiking trip you will ever do. In order to accomplish that, we have prepared tour-guides, with satellite communication if any emergency occurs at any time during the trip. In addition, we offer oxygen cans that will prevent any altitude issues that may be caused because the volcano is located at more than 4000 meters above sea level. Another great product to prevent this effect are sweets because it regulates your blood pressure. Sweets we will not just have, but they will be NATIONAL sweets so you besides the trip, acquire knowledge about our most representative ones.</p>
+          <br/>
+          <p class="animated slideInLeft delay-2s" style="animation-delay:0.2s;">Another concern tourists commonly have is the level of difficulty and the possibility to get lost on the way. However, our tour-guides will hike with you all along the way and back to assure your safety. In average, the walk is about 40 minutes long.</p>
+          <br/>
+          <p class="animated slideInLeft delay-3s" style="animation-delay:0.3s;">The only thing you will be concern about is enjoying the view and the trip.</p>
+</div>
+        <!-- </div> -->
+        
+        <div class="container-fluid">
+          <div class="row">
             <table id="equipmentTbl" width="100%">
-                <thead class="text-success">
-                    <tr>
-                        <th>Name/Description</th>
-                        <th>Amount</th>
-                        <th>Price</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody *ngFor='let e of Equipment; let num = index;'>
-                    <td><h5>{{e.name}}</h5> <p>{{e.description}}</p></td>
-                    <td><input (change)="sendGrandTotal($event, e.name, e.amount, (e.amount * e.price))" style="width: 3em;" id="number" type="number" min="0" value="{{e.amount}}" [(ngModel)]="e.amount" oninput="validity.valid||(value='');"></td>
-                    <td>${{e.price}}</td>
-                    <td>${{(e.amount * e.price)}}</td>
-                    <!-- <td><button (click)="grandTotal(e.amount, e.price)">+</button></td> -->
-                    <!-- <td id="total">{{(e.amount * e.price)}}</td> -->
-                </tbody>
-                <tfoot>
-                    <!-- <hr/> -->
-                        <tr>
-                          <th id="total" colspan="3"><b>Total :</b>
-                              <br/><button *ngIf="isTotal <= 0" disabled class="btn btn-success">Add to Tour</button>
-                              <button *ngIf="isTotal > 0" (click)="addToTour()" class="btn btn-success">Add to Tour</button>
-                          </th>
-                          <td style="font-size: 25px" id="area_total">
-                          </td>
-                        </tr>
-                       </tfoot>
-                        <!-- <tr>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th style="width: 200px;">Grand Total: ${{totalEquipment}}<br/>
-                            <button (click)="addToTour(totalEquipment)">Add to tour</button></th>
-                        </tr> -->
-            </table>
-        </div>
-    </div>
-      <!-- <div class="container-fluid bg-grey">
-        <div class="row">
-          <div class="col-sm-4">
-            <span class="glyphicon glyphicon-usd logo animated slideInLeft"></span>
-          </div>
-          <div class="col-sm-8">
-            <h2>Our Values</h2>
-            <h4 class="animated slideInRight"><strong>MISSION:</strong> Our mission is to provide users with a place to create and keep track of their stock portfolios.</h4>
-            <p class="animated slideInRight"><strong>VISION:</strong> Our vision for the application to be used as any other financial web sites where people can check on their stocks, portfolios, and risks.</p>
-          </div>
-        </div>
-      </div>
-      <div class="container-fluid text-center">
-        <h2>SERVICES</h2>
-        <h4>What we offer</h4>
-        <br>
-        <div class="row">
-          <div class="col-sm-4">
-            <span class="fa fa-area-chart logo-small"></span>
-            <h4>POWER</h4>
-            <p>Powerful and visually appealing graphs</p>
-          </div>
-          <div class="col-sm-4">
-            <span class="fa fa-users logo-small"></span>
-            <h4>USERS</h4>
-            <p>Safe account based system</p>
-          </div>
-          <div class="col-sm-4">
-            <span class="glyphicon glyphicon-folder-open logo-small"></span>
-            <h4>Portfolios</h4>
-            <p>Create and manage your own portfolios</p>
-          </div>
-          </div>
-      </div>
-      
-      <div class="container-fluid text-center bg-white">
-        <h2>Portfolio</h2>
-        <h4>What we have created</h4>
-        <div class="row text-center">
-          <div class="col-sm-4">
-            <div class="thumbnail">
-              <img routerLink="/" src="../../../assets/mainpage.PNG" alt="Buffalo">
-              <p><strong>Buffalo Risk</strong></p>
-              <p>Buffalo Risk built using MEAN Stack</p>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="thumbnail">
-              <img src="../../../assets/graph.PNG" alt="Graph">
-              <p><strong>Graphs</strong></p>
-              <p>Powered by Chart.js</p>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="thumbnail">
-              <img src="../../../assets/portfolio.PNG" alt="Porfolio">
-              <p><strong>Portfolio</strong></p>
-              <p>Personalized stock finances</p>
-            </div>
-          </div>
-      </div>
-      
-      <div class="container-fluid bg-grey">
-        <h2 class="text-center">CONTACT</h2>
-        <div class="row">
-          <div class="col-sm-5">
-            <p>This is a contact page with some basic contact information and a contact form.</p>
-            <p><span class="glyphicon glyphicon-map-marker"></span> Orlando, FL</p>
-            <p><span class="glyphicon glyphicon-phone"></span> (407) 438-2387</p>
-            <p><span class="glyphicon glyphicon-envelope"></span> BuffaloRisk@buffalo.com</p>
-          </div>
-          <div class="col-sm-7">
-            <div class="row">
-              <div class="col-sm-6 form-group">
-                <input #name class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-              </div>
-              <div class="col-sm-6 form-group">
-                <input #email class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+              <thead class="text-success">
+                <tr>
+                  <th>Name/Description</th>
+                  <th>Amount</th>
+                  <th>Price</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody *ngFor='let e of Equipment; let num = index;'>
+                <td><h5>{{e.name}}</h5> <p>{{e.description}}</p></td>
+                <td><input (change)="sendGrandTotal($event, e.name, e.amount, (e.amount * e.price))" style="width: 3em;" id="number" type="number" min="0" value="{{e.amount}}" [(ngModel)]="e.amount" oninput="validity.valid||(value='');"></td>
+                <td>${{e.price}}</td>
+                <td>${{(e.amount * e.price)}}</td>
+                <!-- <td><button (click)="grandTotal(e.amount, e.price)">+</button></td> -->
+                <!-- <td id="total">{{(e.amount * e.price)}}</td> -->
+              </tbody>
+              <tfoot>
+                <!-- <hr/> -->
+                <tr>
+                  <th id="total" colspan="3"><b>Total :</b>
+                    <br/><button *ngIf="isTotal <= 0" disabled class="btn btn-success">Add to Tour</button>
+                    <button *ngIf="isTotal > 0" (click)="addToTour()" class="btn btn-success">Add to Tour</button>
+                  </th>
+                  <td style="font-size: 25px" id="area_total">
+                    </td>
+                  </tr>
+                </tfoot>
+                </table>
               </div>
             </div>
-            <textarea #comment class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
-            <div class="row">
-              <div class="col-sm-12 form-group">
-                <button class="btn btn-default pull-right" (click)="email.value=''; name.value=''; comment.value=''" type="submit">Send</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <a onclick="window.scrollTo(0, 0)" title="To Top">
-        <footer class="container-fluid text-center">
-          <span class="glyphicon glyphicon-chevron-up"></span>
-        </footer>
-      </a> -->
-      
+            <!-- <div class="col-sm-4">         
+              <img src="../../../assets/PeopleWalking1.jpg" style="width: 1200px; height: 710px; " >
+            </div>    -->
+            <div class="row text-center">
+                <div class="col-sm-4" routerLink="../safety"> 
+                 <div class="thumbnail">
+                   <img src="../../../assets/boots.png" style="width: 150px; height: 150px;" alt="Tour1">
+                   <p><strong>Mountain boots</strong></p>
+                 </div> 
+               </div>
+               <div class="col-sm-4" routerLink="../safety">
+                 <div class="thumbnail">
+                   <img src="../../../assets/jacket.png" style="width: 150px; height: 150px;" alt="Tour2">
+                   <p><strong>Mountain jacket</strong></p>
+                 </div>
+               </div>
+               <div class="col-sm-4" routerLink="../safety">
+                 <div class="thumbnail">
+                   <img src="../../../assets/gloves.png" style="width: 150px; height: 150px;" alt="Tour3">
+                   <p><strong>Gloves</strong></p>
+                 </div>
+               </div>
+           </div>
+            
