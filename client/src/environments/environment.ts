@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000',
+  apiUrl: 'https://shielded-taiga-69171.herokuapp.com',
   clientUrl: 'http://localhost:4200'
 };

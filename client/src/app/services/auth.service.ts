@@ -18,7 +18,7 @@ export class AuthService {
       domain: 'cotoweb.auth0.com',
       responseType: 'token id_token',
       audience: 'https://cotowebAPI.com',
-      redirectUri: 'http://localhost:4200/',
+      redirectUri: 'https://cotoweb-979a4.firebaseapp.com/',
       scope: 'openid profile email',
       leeway: 30
     });

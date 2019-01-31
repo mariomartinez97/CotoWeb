@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://buffalo-finance.herokuapp.com',
-  clientUrl: 'https://gabriel-fi.github.io'
+  apiUrl: 'https://shielded-taiga-69171.herokuapp.com',
+  clientUrl: 'https://cotoweb-979a4.firebaseapp.com'
 };
