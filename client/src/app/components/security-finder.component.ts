@@ -43,7 +43,6 @@ export class SecurityFinderComponent {
         : Observable.of<SecurityData[]>([]))
       .catch(error => {
         // TODO: add real error handling
-        console.log('error');
         return Observable.of<SecurityData[]>([]);
       });
   }

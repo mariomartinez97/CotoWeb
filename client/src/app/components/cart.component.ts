@@ -74,8 +74,8 @@ export class CartComponent {
       if(resp[0] == undefined) {
         return;
       } else {
-      console.log(resp)
-      console.log('resp log');
+      // console.log(resp)
+      // console.log('resp log');
       
      // this.reservation._id= resp[0]._id;
       this.reservation.equipment= resp[0].equipment;    
@@ -107,7 +107,7 @@ callRender(){
   }
 }
   addPaypalScript(){  
-    console.log("in here")  
+    // console.log("in here")  
     this.addScript = true;
     return new Promise((resolve,reject)=>{
       let scripttagelement = document.createElement('script');
@@ -124,7 +124,6 @@ callRender(){
       this.checkOut = false;
     }
     else if(this.checkInfo == true){
-      console.log('Logic is fine')
       this.checkInfo = false;
       this.checkOut = true;
       this.callRender();

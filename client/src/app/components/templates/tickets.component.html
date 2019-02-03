@@ -36,21 +36,24 @@
           <td>
             Price: ${{Tour1Price}}
             <br/>
-            <a href="tour-1" class="btn btn-default">Buy Now</a>
+            <a *ngIf="!isAuthenticated()" href="tour-1" class="btn btn-default disabled">Buy Now</a>
+            <a *ngIf="isAuthenticated()" href="tour-1" class="btn btn-default">Buy Now</a>
             <br/>
             <!-- <button (click)="addToCart(1)">Add To Cart</button> -->
           </td>
           <td>
             Price: ${{Tour2Price}}
             <br/>
-            <a href="tour-2" class="btn btn-default">Buy Now</a>
+            <a *ngIf="!isAuthenticated()" href="tour-2" class="btn btn-default disabled">Buy Now</a>
+            <a *ngIf="isAuthenticated()" href="tour-2" class="btn btn-default">Buy Now</a>
             <br/>
             <!-- <button (click)="addToCart(2)">Add To Cart</button> -->
           </td>
           <td>
             Price: ${{Tour3Price}}
             <br/>
-            <a href="tour-3" class="btn btn-default">Buy Now</a>
+            <a *ngIf="!isAuthenticated()" href="tour-3" class="btn btn-default disabled">Buy Now</a>
+            <a *ngIf="isAuthenticated()" href="tour-3" class="btn btn-default">Buy Now</a>
             <br/>
             <!-- <button (click)="addToCart(3)">Add To Cart</button> -->
           </td>

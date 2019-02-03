@@ -40,14 +40,13 @@ export class SafetyFirstComponent {
             });
 
         this.reservationService.getReservation().then(res => {
-            console.log(res[0].equipment[0].amount);
+            // console.log(res[0].equipment[0].amount);
             //this.Equipment = res[0].equipment;
         })
             
     }
 
     sendGrandTotal($event, n, a, t) {
-        console.log("TEST")
         // var summ = Number($("#total[0]").text()) + Number($("#total[1]").text());
         //     console.log(summ);
         var td = document.querySelectorAll('#equipmentTbl > tbody > td:last-child');
@@ -75,13 +74,13 @@ export class SafetyFirstComponent {
         
 
         if (this.equipment.length) {
-            console.log("Length:", this.equipment.length);
+            // console.log("Length:", this.equipment.length);
             // this.equipment.forEach(e => {
             //     this.equipment.push({name:n, amount: a, price: this.isTotal.toString() } as Equipment )
             // });
             for (let i = 0; i < this.Equipment.length; i++) {                
                 if(this.equipment[i] != null) {
-                    console.log(this.equipment[i].name, "<-")
+                    // console.log(this.equipment[i].name, "<-")
                     if (this.equipment[i].name == n) {
                         
                         this.equipment[i].amount = a;
@@ -97,14 +96,9 @@ export class SafetyFirstComponent {
                 }
             }
         } else {
-            console.log("HERE");
             // 1
             this.equipment.push({ name: n, amount: a, price: t} as Equipment);
-
         }
-
-        console.log(this.equipment);
-        
     }
 
     grandTotal(amt, price) {
@@ -114,9 +108,6 @@ export class SafetyFirstComponent {
     }
 
     addToTour() {
-        console.log("Added");
-        //onsole.log(this.amt, this.price);
-        console.log(this.equipment);
         let temp2 = {
             "tour": this.resTour,
             "equipment": [],
@@ -127,12 +118,12 @@ export class SafetyFirstComponent {
         }
 
         this.reservationService.getReservation().then(resp=> {
-            console.log('id is:'+ resp[0]._id);
+            // console.log('id is:'+ resp[0]._id);
             temp2.uid = resp[0].uid; 
             temp2.tour = resp[0].tour;
             temp2.equipment = resp[0].equipment;
             
-            console.log(this.isTotal);
+            // console.log(this.isTotal);
             
             temp2.totalTour = resp[0].totalTour;
             temp2.totalEquip = this.isTotal; 

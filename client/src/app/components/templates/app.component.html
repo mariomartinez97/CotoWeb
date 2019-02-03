@@ -17,13 +17,16 @@
         <li><a routerLink="./info">Info</a></li>
         <li><a routerLink="./compare">Compare Tours</a></li>
         <li><a routerLink="./visit">Plan a Visit</a></li>
-        <li><a routerLink="./safety">Safety First</a></li>
+        <li *ngIf="!isAuthenticated()" class="disabled"><a routerLink="./safety">Safety First</a></li>
+        <li *ngIf="isAuthenticated()"><a routerLink="./safety">Safety First</a></li>
        <!-- <li *ngIf="isAuthenticated() == false" class="disabled"><a routerLink="./portfolio">Portfolios</a></li>
         <li *ngIf="isAuthenticated()"><a routerLink="./portfolio">Portfolios</a></li>-->
         <li><a routerLink="./about">FAQ</a></li>
       </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a routerLink="./cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+          <li *ngIf="!isAuthenticated()" class="disabled"><a routerLink="./cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+          <li *ngIf="isAuthenticated()"><a routerLink="./cart"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+
       <li><a><br-auth></br-auth></a></li>
     </ul>
 

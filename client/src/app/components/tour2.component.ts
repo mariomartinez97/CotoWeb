@@ -81,8 +81,7 @@ addToCart(tourAmount: HTMLInputElement, tourDate: Date){
         temp2.totalTour = temp2.totalTour * temp2.tour.amount;
         temp2.priceTotal = temp2.totalEquip + temp2.totalTour;  
         temp2.tour.amount = parseInt(tourAmount.toString(),10); 
-        temp2.date = tourDate; 
-        console.log(temp2);  
+        temp2.date = tourDate;
         this.res.createReservation(temp2);
       });
     }

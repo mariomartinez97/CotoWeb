@@ -30,11 +30,11 @@ const routes: Routes = [
   { path: 'security-detail/:ticker', component: SecurityDetailComponent },
   { path: 'about', component: AboutComponent },
   { path: 'visit', component: PlanVisitComponent },
-  { path: 'safety', component: SafetyFirstComponent },
-  { path: 'cart', component: CartComponent},
-  { path: 'tour-1', component: Tour1Component },
-  { path: 'tour-2', component: Tour2Component },
-  { path: 'tour-3', component: Tour3Component },
+  { path: 'safety', component: SafetyFirstComponent, canActivate: [AuthGuardComponent] },
+  { path: 'cart', component: CartComponent, canActivate: [AuthGuardComponent]},
+  { path: 'tour-1', component: Tour1Component, canActivate: [AuthGuardComponent] },
+  { path: 'tour-2', component: Tour2Component, canActivate: [AuthGuardComponent] },
+  { path: 'tour-3', component: Tour3Component, canActivate: [AuthGuardComponent] },
 
 ];
 

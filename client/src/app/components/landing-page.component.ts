@@ -20,7 +20,7 @@ export class LandingPageComponent {
   ){
     this.wow = new WOW();
     this.wow.init();
-    console.log(auth.isAuthenticated().toString())
+    // console.log(auth.isAuthenticated().toString())
   }
 
   public gotoDetails() {

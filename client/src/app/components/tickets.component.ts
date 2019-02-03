@@ -46,9 +46,8 @@ import { Tours } from '../models/tours';
     private toursService: ToursService,
     private res: ReservationService
   ) {
-    console.log("im here") 
-    console.log(auth.isAuthenticated().toString())
-    console.log("im here")
+    // console.log(auth.isAuthenticated().toString())
+    auth.handleAuthentication();
   }
 
   ngOnInit(): void {
@@ -57,39 +56,43 @@ import { Tours } from '../models/tours';
     //     this.securities = securities
     //     this.load = false;
     //   });
-
+    
     this.securitiesService.getSecurities().then(res => {
       this.Features = res;
-      console.log(this.Features);
+      // console.log(this.Features);
     });
 
     this.toursService.getToursById('1').then(res => {
       this.Tour1 = res[0].features;
       this.Tour1Price = res[0].price;
-      console.log(this.Tour1);     
+      // console.log(this.Tour1);     
     });
 
     this.toursService.getToursById('2').then(res => {
       this.Tour2 = res[0].features;
       this.Tour2Price = res[0].price;
-      console.log(this.Tour2);
+      // console.log(this.Tour2);
       
     });
 
     this.toursService.getToursById('3').then(res => {
       this.Tour3 = res[0].features;
       this.Tour3Price = res[0].price;
-      console.log(this.Tour3Price);
+      // console.log(this.Tour3Price);
       
     });    
   }
+
+  public isAuthenticated(): boolean {
+    return this.auth.isAuthenticated();
+  }
+  
   addToCart(tourID: HTMLInputElement){
     // push selected tour to reservation to retrieve it on cart screen
     // get the actual reservation
     //console.log(tourID);
-    console.log(tourID.value);
-    console.log("middle");
-    console.log(tourID.toString());
+    // console.log(tourID.value);
+    // console.log(tourID.toString());
 
     let temp2 = {
       "tour": this.resTour,
@@ -100,13 +103,13 @@ import { Tours } from '../models/tours';
     // this.res.getReservation().then(resp=> console.log(resp[0].equipment));
     // console.log('bef')
   this.res.getReservation().then(resp=> {
-    console.log('id is:'+ resp[0]._id);
+    // console.log('id is:'+ resp[0]._id);
     temp2.equipment = resp[0].equipment;   
     temp2.priceTotal = resp[0].priceTotal;
     temp2.tour = resp[0].tour;
     temp2.uid = resp[0].uid; 
     this.reservation.push({_id: resp[0]._id, tour: resp[0].tour, equipment: resp[0].equipment, uid: resp[0].uid} as Reservation);
-    console.log(this.reservation[0])
+    // console.log(this.reservation[0])
     // this.reservation.id = temp2.id;
     this.res.deleteReservation(resp[0]._id).then(respDel=>{
       //console.log('respDel' + respDel);
